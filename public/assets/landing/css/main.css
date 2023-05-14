@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 :root {
-    /* --base-1: #00e77b;
-    --base-rgb: 0, 231, 123;
-    --base-2: #04f485;
-    --base-rgb-2: 4, 244, 133; */
+    --base-1: #ffac15;
+    --base-rgb: 255, 187, 50;
+    --base-2: #ffe000;
+    --base-rgb-2: 255, 224, 0;
 
     /* Test Color */
-    --base-1: #c70000;
+    /* --base-1: #c70000;
     --base-rgb: 255, 0, 0;
     --base-2: #ff2200;
-    --base-rgb-2: 255, 34, 0;
+    --base-rgb-2: 255, 34, 0; */
     /* Test Color End */
 
     --base-8: #6200ee;
@@ -19,7 +19,7 @@
     --base-11: #ffce31;
     --base-13: #e35606;
     --base-21: #768d82;
-    --base-30: #047bc7;
+    --base-30: #ff0000ab;
     --base-35: #8800e7;
     --base-38: #ffc29f;
     --base-39: #e35606;
@@ -2262,7 +2262,7 @@ header.active::after {
 .feature-card {
     border-radius: 5px;
     padding: 27px 27px 46px 52px;
-    background: #f4fff5;
+    background: #fffbda;
     width: calc(33.3333333333% - 24px);
 }
 
@@ -2289,7 +2289,7 @@ header.active::after {
 }
 
 .feature-card:nth-of-type(6n + 2) {
-    background: rgba(232, 246, 255, 0.3);
+    background: rgba(255, 0, 0, 0.177);
     transform: translateY(51px);
 }
 
@@ -2298,7 +2298,7 @@ header.active::after {
 }
 
 .feature-card:nth-of-type(6n + 3) {
-    background: #f1ffe9;
+    background: #fffbda;
 }
 
 .feature-card:nth-of-type(6n + 3) .feature-card-cont .subtitle {
@@ -2512,7 +2512,7 @@ header.active::after {
 }
 
 .counter-wrapper .counter-bg {
-    border: 1px solid #c6fde3;
+    border: 1px solid #ffac15;
     position: absolute;
     inset-inline-start: 0;
     top: 0;
@@ -2552,7 +2552,7 @@ header.active::after {
     padding: 27px 28px;
     background: #ffffff;
     border: 1px solid rgba(var(--base-rgb), 0.2);
-    box-shadow: 0px 4px 40px rgba(52, 206, 134, 0.12);
+    box-shadow: 0px 4px 40px #ce98341f;
     border-radius: 27px;
     font-weight: 700;
     font-size: 20px;
@@ -2725,7 +2725,7 @@ header.active::after {
 
 .privacy-wrapper {
     background: var(--body-bg);
-    box-shadow: 0px 4px 20px rgba(4, 97, 165, 0.1);
+    box-shadow: 0px 4px 20px rgba(165, 101, 4, 0.1);
     border-radius: 30px;
     padding: 45px 50px;
 }

@@ -1,22 +1,23 @@
 @extends('layouts.landing.app')
-@section('title', translate("messages.landing_page") . ' | ' . \App\CentralLogics\Helpers::get_settings('business_name') != 'null' ? \App\CentralLogics\Helpers::get_settings('business_name') :
-    'Sixam Mart')
+@section('title', translate('messages.landing_page') . ' | ' . \App\CentralLogics\Helpers::get_settings('business_name')
+    != 'null' ? \App\CentralLogics\Helpers::get_settings('business_name') : 'Sixam Mart')
 @section('content')
-        <!-- Basic Settings -->
-        @php($front_end_url = \App\Models\BusinessSetting::where(['key' => 'front_end_url'])->first())
-        @php($front_end_url = $front_end_url ? $front_end_url->value : null)
-        @php($landing_page_text = \App\Models\BusinessSetting::where(['key' => 'landing_page_text'])->first())
-        @php($landing_page_text = isset($landing_page_text->value) ? json_decode($landing_page_text->value, true) : null)
-        @php($landing_page_links = \App\Models\BusinessSetting::where(['key' => 'landing_page_links'])->first())
-        @php($landing_page_links = isset($landing_page_links->value) ? json_decode($landing_page_links->value, true) : null)
-        @php($landing_page_images = \App\Models\BusinessSetting::where(['key' => 'landing_page_images'])->first())
-        @php($landing_page_images = isset($landing_page_images->value) ? json_decode($landing_page_images->value, true) : null)
+    <!-- Basic Settings -->
+    @php($front_end_url = \App\Models\BusinessSetting::where(['key' => 'front_end_url'])->first())
+    @php($front_end_url = $front_end_url ? $front_end_url->value : null)
+    @php($landing_page_text = \App\Models\BusinessSetting::where(['key' => 'landing_page_text'])->first())
+    @php($landing_page_text = isset($landing_page_text->value) ? json_decode($landing_page_text->value, true) : null)
+    @php($landing_page_links = \App\Models\BusinessSetting::where(['key' => 'landing_page_links'])->first())
+    @php($landing_page_links = isset($landing_page_links->value) ? json_decode($landing_page_links->value, true) : null)
+    @php($landing_page_images = \App\Models\BusinessSetting::where(['key' => 'landing_page_images'])->first())
+    @php($landing_page_images = isset($landing_page_images->value) ? json_decode($landing_page_images->value, true) : null)
     <!-- ==== Banner Section Starts Here ==== -->
     @php($logo = \App\Models\BusinessSetting::where(['key' => 'logo'])->first()->value ?? '')
     <section class="banner-section position-relative">
         <div class="container">
             <div class="banner-content wow fadeInUp">
-                <h1 class="title">{{ isset($landing_page_text['header_title_1']) ? $landing_page_text['header_title_1'] : '' }}</h1>
+                <h1 class="title">
+                    {{ isset($landing_page_text['header_title_1']) ? $landing_page_text['header_title_1'] : '' }}</h1>
                 <img class="w-100" onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'"
                     src="{{ asset('storage/app/public/business/' . $logo) }}" alt="">
                 <div class="text">
@@ -41,8 +42,7 @@
                     <feOffset dx="-3" dy="-30" />
                     <feGaussianBlur stdDeviation="20" />
                     <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.756863 0 0 0 0 0.764706 0 0 0 0 0.760784 0 0 0 0.3 0" />
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.756863 0 0 0 0 0.764706 0 0 0 0 0.760784 0 0 0 0.3 0" />
                     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_28_1582" />
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_28_1582" result="shape" />
                 </filter>
@@ -210,8 +210,7 @@
                 <path
                     d="M1175.77 77.7027C1136.68 47.572 1082.3 46.3409 1042.62 75.6982C1021.65 91.2177 1005.39 114.961 1008.35 151.113C1009.39 163.9 1012.3 174.391 1016.55 182.978C1033.75 217.792 1104.37 216.451 1108.29 216.446C1110.84 216.444 1113.38 216.501 1115.92 216.617C1124.82 217.025 1133.67 218.145 1142.4 219.964C1154.83 222.556 1170.66 223.859 1184.81 218.949C1187.21 218.119 1189.55 217.104 1191.8 215.912C1199.57 211.781 1208.27 207.833 1213.36 198.035C1217.18 190.681 1219.97 181.46 1221.31 169.975C1226.19 128.148 1201.81 97.7729 1175.77 77.7027Z"
                     fill="#F2F2F2" />
-                <path d="M1168.14 76.5935V88.365H1152.82V216.743H1184.8V93.2516V88.365V76.5935H1168.14Z"
-                    fill="#575A89" />
+                <path d="M1168.14 76.5935V88.365H1152.82V216.743H1184.8V93.2516V88.365V76.5935H1168.14Z" fill="#575A89" />
                 <path d="M1083.74 155.663V135.452H1064.2V155.663H1056.87V216.965H1090.85V155.663H1083.74Z"
                     fill="#575A89" />
                 <path d="M1087.07 188.535H1060.64V217.187H1087.07V188.535Z" fill="#3F3D56" />
@@ -220,8 +219,7 @@
                     fill="#3F3D56" />
                 <path opacity="0.1" d="M1150.15 70.1523H1141.49V77.0376H1150.15V70.1523Z" fill="black" />
                 <path opacity="0.1" d="M1099.51 70.1523H1090.85V217.187H1099.51V70.1523Z" fill="black" />
-                <path d="M1046.65 112.13V106.578H1040.88V112.13H1030.44V217.187H1056.87V112.13H1046.65Z"
-                    fill="#3F3D56" />
+                <path d="M1046.65 112.13V106.578H1040.88V112.13H1030.44V217.187H1056.87V112.13H1046.65Z" fill="#3F3D56" />
                 <path opacity="0.1" d="M1043.98 106.578H1040.88V112.131H1043.98V106.578Z" fill="black" />
                 <path opacity="0.1" d="M1033.55 112.13H1030.44V217.187H1033.55V112.13Z" fill="black" />
                 <path opacity="0.1" d="M1150.15 126.79H1141.49V217.187H1150.15V126.79Z" fill="black" />
@@ -356,8 +354,7 @@
                 <path
                     d="M770.687 210.444L770.175 206.131C770.147 203.854 770.541 201.653 771.481 199.625L771.958 193.288L766.705 191.175C766.689 191.28 766.675 191.385 766.66 191.491L764.198 192.701L761.796 192.164L761.81 191.41L757.034 193.522C758.613 200.74 757.752 208.235 755.036 217.088L761.328 218.779L761.38 215.809L766.987 215.416C767.045 216.379 767.091 217.326 767.118 218.251C770.282 219.396 770.391 219.377 773.274 217.738C772.126 215.365 771.217 212.896 770.687 210.444Z"
                     fill="#00C066" />
-                <path
-                    d="M778.764 205.258L775.54 204.202L770.384 198.302L771.958 193.288L779.122 203.146L778.764 205.258Z"
+                <path d="M778.764 205.258L775.54 204.202L770.384 198.302L771.958 193.288L779.122 203.146L778.764 205.258Z"
                     fill="#00C066" />
                 <path
                     d="M768.661 209.827C768.714 210.054 768.856 210.252 769.057 210.376C769.258 210.501 769.501 210.542 769.732 210.491L772.469 209.881L772.073 208.165L769.337 208.774C769.105 208.825 768.904 208.965 768.777 209.163C768.65 209.36 768.609 209.599 768.661 209.827V209.827Z"
@@ -531,8 +528,7 @@
                 <path
                     d="M713.828 236.518L707.35 244.081L707.254 244C706.47 243.334 705.985 242.384 705.903 241.361C705.822 240.338 706.152 239.325 706.821 238.544L706.821 238.544L710.777 233.924L713.828 236.518Z"
                     fill="#2F2E41" />
-                <path
-                    d="M675.397 184.263L674.434 193.116L713.38 192.562L696.395 164.989L682.528 164.493L675.397 184.263Z"
+                <path d="M675.397 184.263L674.434 193.116L713.38 192.562L696.395 164.989L682.528 164.493L675.397 184.263Z"
                     fill="#2F2E41" />
                 <path opacity="0.28"
                     d="M675.397 184.263L674.434 193.116L713.38 192.562L696.395 164.989L682.528 164.493L675.397 184.263Z"
@@ -585,8 +581,7 @@
                     d="M571.059 215.558C571.059 213.904 571.386 212.267 572.022 210.739C572.657 209.211 573.588 207.822 574.762 206.653C575.936 205.483 577.329 204.556 578.863 203.923C580.396 203.29 582.04 202.964 583.7 202.964V198.766C580.172 198.766 576.732 199.869 573.867 201.92C571.001 203.971 568.854 206.866 567.728 210.197C566.602 213.529 566.553 217.128 567.589 220.488C568.625 223.849 570.693 226.8 573.502 228.927L576.052 225.584C574.499 224.411 573.241 222.895 572.374 221.155C571.508 219.416 571.058 217.5 571.059 215.558Z"
                     fill="#00C066" />
                 <path d="M678.503 209.261H630.623V156.977H678.503V209.261Z" fill="white" />
-                <path
-                    d="M678.503 209.261H630.623V156.977H678.503V209.261ZM631.006 208.879H678.12V157.358H631.006V208.879Z"
+                <path d="M678.503 209.261H630.623V156.977H678.503V209.261ZM631.006 208.879H678.12V157.358H631.006V208.879Z"
                     fill="#3F3D56" />
                 <path d="M646.136 188.939H637.518V202.678H646.136V188.939Z" fill="#575A89" />
                 <path d="M658.585 179.589H649.967V202.678H658.585V179.589Z" fill="#E6E6E6" />
@@ -685,10 +680,8 @@
                 <path d="M380.033 204.281H329.935V204.538H380.033V204.281Z" fill="#2F2E41" />
                 <path d="M377.164 213.762H332.721V214.02H377.164V213.762Z" fill="#2F2E41" />
                 <path d="M355.145 195.788H354.898V223.968H355.145V195.788Z" fill="#2F2E41" />
-                <path d="M366.211 195.78L364.437 223.96L364.684 223.977L366.458 195.797L366.211 195.78Z"
-                    fill="#2F2E41" />
-                <path d="M343.837 195.78L343.591 195.796L345.355 223.977L345.601 223.96L343.837 195.78Z"
-                    fill="#2F2E41" />
+                <path d="M366.211 195.78L364.437 223.96L364.684 223.977L366.458 195.797L366.211 195.78Z" fill="#2F2E41" />
+                <path d="M343.837 195.78L343.591 195.796L345.355 223.977L345.601 223.96L343.837 195.78Z" fill="#2F2E41" />
                 <path d="M448 247.551H318V247.853H448V247.551Z" fill="#2F2E41" />
                 <path
                     d="M404.388 144.348C404.388 144.348 406.509 150.634 405.203 151.601C403.898 152.568 409.609 160.465 409.609 160.465L416.461 158.531L412.708 151.923C412.708 151.923 412.219 145.315 412.219 144.348C412.219 143.381 404.388 144.348 404.388 144.348Z"
@@ -913,8 +906,7 @@
                 <path
                     d="M477.651 196.611C477.883 196.611 478.071 196.348 478.071 196.023C478.071 195.699 477.883 195.436 477.651 195.436C477.42 195.436 477.232 195.699 477.232 196.023C477.232 196.348 477.42 196.611 477.651 196.611Z"
                     fill="#FFB8B8" />
-                <path
-                    d="M530.511 241.553H501.469L495.319 211.025H490.07V209.656H496.376L502.526 240.184H530.511V241.553Z"
+                <path d="M530.511 241.553H501.469L495.319 211.025H490.07V209.656H496.376L502.526 240.184H530.511V241.553Z"
                     fill="#3F3D56" />
                 <path
                     d="M505.725 247.131C507.269 247.131 508.52 245.816 508.52 244.195C508.52 242.574 507.269 241.26 505.725 241.26C504.181 241.26 502.929 242.574 502.929 244.195C502.929 245.816 504.181 247.131 505.725 247.131Z"
@@ -932,8 +924,7 @@
                 <path d="M516.723 215.233H516.35V240.794H516.723V215.233Z" fill="#3F3D56" />
                 <path d="M498.643 222.082L498.643 222.473L534.722 222.565L534.723 222.173L498.643 222.082Z"
                     fill="#3F3D56" />
-                <path d="M532.177 234.172L500.48 234.4L500.483 234.791L532.179 234.564L532.177 234.172Z"
-                    fill="#3F3D56" />
+                <path d="M532.177 234.172L500.48 234.4L500.483 234.791L532.179 234.564L532.177 234.172Z" fill="#3F3D56" />
                 <path
                     d="M490.629 211.319C491.762 211.319 492.679 210.793 492.679 210.145C492.679 209.496 491.762 208.97 490.629 208.97C489.497 208.97 488.579 209.496 488.579 210.145C488.579 210.793 489.497 211.319 490.629 211.319Z"
                     fill="#3F3D56" />
@@ -942,8 +933,7 @@
                 <path
                     d="M1000.8 198.067L1000.8 198.086L1000.79 198.142L999.978 204.011L995.025 205.848L994.947 205.811L992.174 204.479L990.74 198.917L990.642 198.535L990.672 198.523L996.807 196.193L1000.79 198.065L1000.8 198.067Z"
                     fill="#00C066" />
-                <path
-                    d="M994.947 205.811L992.174 204.479L990.642 198.535L990.672 198.524L994.669 200.228L994.947 205.811Z"
+                <path d="M994.947 205.811L992.174 204.479L990.642 198.535L990.672 198.524L994.669 200.228L994.947 205.811Z"
                     fill="#00C066" />
                 <path opacity="0.2"
                     d="M995.017 205.743L992.907 201.656L993.178 200.498L991.902 198.979L991.794 199.072L993.023 200.535L992.105 204.463L992.244 204.496L992.857 201.871L994.89 205.81L995.017 205.743Z"
@@ -1103,8 +1093,7 @@
                 <path
                     d="M962.487 233.218L962.484 233.238L962.476 233.294L961.667 239.163L956.714 241L956.636 240.963L953.863 239.631L952.429 234.069L952.331 233.687L952.36 233.675L958.495 231.345L962.483 233.216L962.487 233.218Z"
                     fill="#00C066" />
-                <path
-                    d="M956.636 240.963L953.863 239.631L952.331 233.687L952.36 233.675L956.357 235.38L956.636 240.963Z"
+                <path d="M956.636 240.963L953.863 239.631L952.331 233.687L952.36 233.675L956.357 235.38L956.636 240.963Z"
                     fill="#00C066" />
                 <path opacity="0.2"
                     d="M956.706 240.895L954.596 236.808L954.867 235.649L953.591 234.13L953.482 234.224L954.712 235.687L953.793 239.615L953.932 239.648L954.546 237.022L956.579 240.961L956.706 240.895Z"
@@ -1802,7 +1791,8 @@
             <svg class="cloud cloud-1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1813,7 +1803,8 @@
             <svg class="cloud cloud-2" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1824,7 +1815,8 @@
             <svg class="cloud cloud-3" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1835,7 +1827,8 @@
             <svg class="cloud cloud-4" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1846,7 +1839,8 @@
             <svg class="cloud cloud-5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1857,7 +1851,8 @@
             <svg class="cloud cloud-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1868,7 +1863,8 @@
             <svg class="cloud cloud-7" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
                 style="enable-background:new 0 0 300 300;" xml:space="preserve">
-                <path class="st0" fill="#8cefb9" d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
+                <path class="st0" fill="#8cefb9"
+                    d="M259.83,140.14l-30.51,19.41l18.51-33.65c-5.24-4.19-11.73-6.51-18.44-6.59h-0.48
     	c-2.12,0.03-4.24-0.13-6.34-0.48l-10.34,6.55l4.43-8.05c-7.32-2.56-13.65-7.37-18.08-13.73l-18.49,11.73l11.69-21.26
     	c-10.82-13-25.38-20.97-41.4-20.97c-19.24,0-36.38,11.45-47.44,29.27c-3.27,5.34-7.89,9.72-13.4,12.69
     	c-5.51,2.97-11.71,4.43-17.96,4.23h-1.03c-21.23,0-38.46,24.09-38.46,53.81c0,29.72,17.23,53.81,38.46,53.81
@@ -1885,7 +1881,9 @@
     <section class="ecommerce-venture-section">
         <div class="container max-w1060">
             <div class="section-header wow fadeInUp">
-                <h2 class="title">{{ isset($landing_page_text['module_section_title']) ? $landing_page_text['module_section_title'] : '' }}</h2>
+                <h2 class="title">
+                    {{ isset($landing_page_text['module_section_title']) ? $landing_page_text['module_section_title'] : '' }}
+                </h2>
                 <p>
                     {{ isset($landing_page_text['module_section_sub_title']) ? $landing_page_text['module_section_sub_title'] : '' }}
                 </p>
@@ -1895,10 +1893,13 @@
                 <div class="nav--tabs">
                     <div class="owl-theme owl-carousel" id="sync2">
                         @foreach ($modules as $key => $item)
-                        <div class="item">
-                            <img class="__img-50" src="{{ asset('storage/app/public/module/') }}/{{ isset($item['icon']) ? $item['icon'] : null }}" onerror="this.src='{{asset('public/assets/admin/img/100x100/2.png')}}'" alt="">
-                            <div class="txt d-block">{{translate("messages.{$item->module_name}")}}</div>
-                        </div>
+                            <div class="item">
+                                <img class="__img-50"
+                                    src="{{ asset('storage/app/public/module/') }}/{{ isset($item['icon']) ? $item['icon'] : null }}"
+                                    onerror="this.src='{{ asset('public/assets/admin/img/100x100/2.png') }}'"
+                                    alt="">
+                                <div class="txt d-block">{{ translate("messages.{$item->module_name}") }}</div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -1915,7 +1916,9 @@
                         </div>
                         <div class="col-lg-6 col-md-8">
                             <div class="venture-img mx-1">
-                                <img src="{{ asset('storage/app/public/module/') }}/{{ isset($item['thumbnail']) ? $item['thumbnail'] : null }}" onerror="this.src='{{asset('public/assets/admin/img/100x100/2.png')}}'" alt="">
+                                <img src="{{ asset('storage/app/public/module/') }}/{{ isset($item['thumbnail']) ? $item['thumbnail'] : null }}"
+                                    onerror="this.src='{{ asset('public/assets/admin/img/100x100/2.png') }}'"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -1929,21 +1932,21 @@
     @php($promotion_banner = \App\Models\BusinessSetting::where(['key' => 'promotion_banner'])->first())
     @php($promotion_banner = isset($promotion_banner->value) ? json_decode($promotion_banner->value, true) : null)
     @if ($promotion_banner && count($promotion_banner) > 0)
-    <section class="main-category overflow-hidden pt-30 pb-50">
-        <div class="container">
-            <div class="main-category-slider owl-theme owl-carousel">
-                @foreach ($promotion_banner as $item)
-                <div class="category-slide-item"
-                    style="background: url({{ asset('public/assets/landing') }}/image/{{ isset($item['img']) ? $item['img'] : null }}) no-repeat center center / cover">
-                    <div>
-                        <h2 class="title">{{$item['title'] ?? ''}}</h2>
-                        <div class="text">{{$item['sub_title'] ?? ''}}</div>
-                    </div>
+        <section class="main-category overflow-hidden pt-30 pb-50">
+            <div class="container">
+                <div class="main-category-slider owl-theme owl-carousel">
+                    @foreach ($promotion_banner as $item)
+                        <div class="category-slide-item"
+                            style="background: url({{ asset('public/assets/landing') }}/image/{{ isset($item['img']) ? $item['img'] : null }}) no-repeat center center / cover">
+                            <div>
+                                <h2 class="title">{{ $item['title'] ?? '' }}</h2>
+                                <div class="text">{{ $item['sub_title'] ?? '' }}</div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!-- ==== Main Category Section Ends Here ==== -->
 
@@ -1955,69 +1958,74 @@
                 <div class=" col-lg-6 pe-lg-5">
                     <div class="learn-feature-content wow fadeInUp">
                         <div class="section-header text-start mb-0">
-                            <h2 class="title">{{ isset($landing_page_text['feature_section_title']) ? $landing_page_text['feature_section_title'] : '' }}</span></h2>
+                            <h2 class="title">
+                                {{ isset($landing_page_text['feature_section_title']) ? $landing_page_text['feature_section_title'] : '' }}</span>
+                            </h2>
                             <div class="text">
-                                {!! isset($landing_page_text['feature_section_description']) ? $landing_page_text['feature_section_description'] : '' !!}
+                                {!! isset($landing_page_text['feature_section_description'])
+                                    ? $landing_page_text['feature_section_description']
+                                    : '' !!}
                             </div>
                         </div>
                     </div>
                 </div>
                 @php($feature = \App\Models\BusinessSetting::where(['key' => 'feature'])->first())
                 @php($feature = isset($feature->value) ? json_decode($feature->value, true) : [])
-                    <?php
-                        $array1 = array_slice($feature, 0, ceil(count($feature)/2));
-                        $array2 = array_slice($feature, ceil(count($feature)/2));
-                    ?>
-                @if (isset($feature) && $x = count($feature) > 0)
+                <?php
+                $array1 = array_slice($feature, 0, ceil(count($feature) / 2));
+                $array2 = array_slice($feature, ceil(count($feature) / 2));
+                ?>
+                @if (isset($feature) && ($x = count($feature) > 0))
 
-                <div class="col-lg-6">
-                    <div class="learn-feature-wrapper py-5">
-                        <div class="row g-4 learn-feature-item-group">
-                            <div class="col-6">
-                                <div class="row gy-4 gy-sm-5">
-                                    <!-- Item -->
-                                    @foreach ($array1 as $item)
-                                    <div class="col-12">
-                                        <div class="learn-feature-item">
-                                            <div class="learn-feature-icon">
-                                                <img src="{{ asset('public/assets/landing') }}/image/{{ $item['img'] }}"
-                                                 alt="{{$item['title'] ?? ''}}">
-                                            </div>
-                                            <div class="learn-feature-item-content">
-                                                <h5 class="subttle">{{$item['title'] ?? ''}}</h5>
-                                                <div class="text">
-                                                    {{$item['feature_description'] ?? ''}}
+                    <div class="col-lg-6">
+                        <div class="learn-feature-wrapper py-5">
+                            <div class="row g-4 learn-feature-item-group">
+                                <div class="col-6">
+                                    <div class="row gy-4 gy-sm-5">
+                                        <!-- Item -->
+                                        @foreach ($array1 as $item)
+                                            <div class="col-12">
+                                                <div class="learn-feature-item">
+                                                    <div class="learn-feature-icon">
+                                                        <img src="{{ asset('public/assets/landing') }}/image/{{ $item['img'] }}"
+                                                            alt="{{ $item['title'] ?? '' }}">
+                                                    </div>
+                                                    <div class="learn-feature-item-content">
+                                                        <h5 class="subttle">{{ $item['title'] ?? '' }}</h5>
+                                                        <div class="text">
+                                                            {{ $item['feature_description'] ?? '' }}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
+                                        <!-- Item End-->
                                     </div>
-                                    @endforeach
-                                    <!-- Item End-->
                                 </div>
-                            </div>
 
-                            <div class="col-6">
-                                <div class="row gy-4 gy-sm-5 mt-5 pt-5">
-                                    @foreach ($array2 as $item)
-                                    <div class="col-12">
-                                        <div class="learn-feature-item">
-                                            <div class="learn-feature-icon">
-                                                <img src="{{ asset('public/assets/landing') }}/image/{{ $item['img'] }}" alt="{{$item['title']}}">
-                                            </div>
-                                            <div class="learn-feature-item-content">
-                                                <h5 class="subttle">{{$item['title'] ?? ''}}</h5>
-                                                <div class="text">
-                                                    {{$item['feature_description'] ?? ''}}
+                                <div class="col-6">
+                                    <div class="row gy-4 gy-sm-5 mt-5 pt-5">
+                                        @foreach ($array2 as $item)
+                                            <div class="col-12">
+                                                <div class="learn-feature-item">
+                                                    <div class="learn-feature-icon">
+                                                        <img src="{{ asset('public/assets/landing') }}/image/{{ $item['img'] }}"
+                                                            alt="{{ $item['title'] }}">
+                                                    </div>
+                                                    <div class="learn-feature-item-content">
+                                                        <h5 class="subttle">{{ $item['title'] ?? '' }}</h5>
+                                                        <div class="text">
+                                                            {{ $item['feature_description'] ?? '' }}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -2031,18 +2039,25 @@
                 <div class="col-lg-5 col-xl-6 text-lg-start">
                     <div class="section-header text-lg-start mb-3 wow fadeInUp">
                         <h2 class="title">
-                            <div>{{ isset($landing_page_text['refer_section_title']) ? $landing_page_text['refer_section_title'] : '' }}</div>
-                            <div class="text--base">{{ isset($landing_page_text['refer_section_sub_title']) ? $landing_page_text['refer_section_sub_title'] : '' }}</div>
+                            <div>
+                                {{ isset($landing_page_text['refer_section_title']) ? $landing_page_text['refer_section_title'] : '' }}
+                            </div>
+                            <div class="text--base">
+                                {{ isset($landing_page_text['refer_section_sub_title']) ? $landing_page_text['refer_section_sub_title'] : '' }}
+                            </div>
                         </h2>
                     </div>
                     <div class="text">
-                        {!! isset($landing_page_text['refer_section_description']) ? $landing_page_text['refer_section_description'] : '' !!}
+                        {!! isset($landing_page_text['refer_section_description'])
+                            ? $landing_page_text['refer_section_description']
+                            : '' !!}
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-6 text-lg-end">
                     <div class="refer-img">
                         <!-- Main Image -->
-                        <svg class="main-img" viewBox="0 0 518 382" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="main-img" viewBox="0 0 518 382" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M237.219 159.432C236.893 159.812 236.872 160.312 236.885 160.799C236.897 161.452 236.932 162.105 236.962 162.759C236.992 163.412 237.018 164.061 237.013 164.715C237.013 164.745 237.013 164.779 237.013 164.809C236.885 164.578 236.769 164.335 236.653 164.1C236.216 163.194 235.74 162.31 235.208 161.456C235.079 161.251 234.946 161.046 234.813 160.841C234.702 160.671 234.599 160.47 234.419 160.363C234.341 160.316 234.247 160.32 234.166 160.337C233.861 160.389 233.557 160.495 233.265 160.602C233.072 160.675 232.849 160.743 232.682 160.876C232.605 160.935 232.57 161.051 232.545 161.145C232.3 162.02 232.24 162.951 232.189 163.861C232.159 164.429 232.133 165.001 232.086 165.569C232.073 165.718 232.06 165.868 232.043 166.021C231.781 165.701 231.584 165.33 231.391 164.962C231.172 164.557 230.949 164.151 230.628 163.818C230.499 163.685 230.323 163.583 230.139 163.587C229.929 163.587 229.71 163.673 229.513 163.737C229.32 163.801 229.122 163.865 228.934 163.942C228.814 163.989 228.668 164.04 228.565 164.121C228.419 164.236 228.398 164.403 228.385 164.582C228.368 164.838 228.363 165.095 228.368 165.351C228.372 165.671 228.41 165.983 228.453 166.299C228.243 166.115 228.037 165.919 227.819 165.744C227.446 165.453 226.987 165.231 226.515 165.266C226.193 165.291 225.867 165.419 225.571 165.53C225.426 165.586 225.271 165.641 225.134 165.714C225.125 165.718 224.975 165.804 225.074 165.795C225.692 165.744 226.206 166.145 226.656 166.542C226.905 166.76 227.145 166.991 227.424 167.174C227.699 167.354 227.969 167.397 228.269 167.341C228.29 167.345 228.346 167.332 228.428 167.307C228.814 167.209 229.208 167.085 229.568 166.914C229.714 166.846 229.869 166.773 229.954 166.632C230.122 166.363 229.98 165.97 229.941 165.676C229.937 165.633 229.933 165.586 229.929 165.543C230.04 165.752 230.156 165.966 230.28 166.167C230.499 166.513 230.769 166.833 231.116 167.051C231.271 167.149 231.451 167.23 231.635 167.23C231.85 167.23 232.069 167.14 232.266 167.08C232.579 166.987 232.939 166.884 233.218 166.7C233.368 166.602 233.428 166.427 233.462 166.256C233.509 166.026 233.535 165.791 233.561 165.56C233.612 165.103 233.642 164.646 233.668 164.185C233.707 163.502 233.733 162.819 233.805 162.144C234.003 162.468 234.196 162.801 234.384 163.135C234.633 163.579 234.865 164.031 235.083 164.488C235.268 164.873 235.448 165.257 235.679 165.616C235.898 165.957 236.181 166.29 236.537 166.487C236.627 166.534 236.726 166.534 236.82 166.521C237.125 166.47 237.429 166.363 237.721 166.256C238.008 166.15 238.334 166.068 238.446 165.748C238.514 165.552 238.501 165.317 238.51 165.112C238.523 164.856 238.527 164.599 238.531 164.343C238.536 163.848 238.523 163.357 238.506 162.861C238.48 162.148 238.437 161.435 238.416 160.726C238.398 160.167 238.313 159.453 238.699 159.001C238.754 158.937 238.63 158.967 238.604 158.971C238.446 158.997 238.295 159.043 238.141 159.09C237.944 159.15 237.751 159.219 237.562 159.295C237.476 159.33 237.296 159.377 237.228 159.453L237.219 159.432Z"
                                 fill="url(#paint0_linear_28_1911)" />
@@ -2269,23 +2284,23 @@
                                 d="M279.803 153.79C279.845 154.174 279.42 154.495 279.037 154.432C278.653 154.37 278.363 154.039 278.249 153.666C278.135 153.293 278.166 152.899 278.208 152.516C278.301 151.636 278.456 150.755 278.84 149.957C279.223 149.16 279.845 148.445 280.663 148.124C280.984 148.414 280.995 148.994 280.819 149.388C280.642 149.781 280.342 150.092 280.093 150.444C279.461 151.366 279.296 152.578 279.648 153.635C279.783 153.635 279.669 153.79 279.803 153.801V153.79Z"
                                 fill="#263238" />
                             <defs>
-                                <linearGradient id="paint0_linear_28_1911" x1="233.665" y1="167.502" x2="231.627"
-                                    y2="161.077" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="paint0_linear_28_1911" x1="233.665" y1="167.502"
+                                    x2="231.627" y2="161.077" gradientUnits="userSpaceOnUse">
                                     <stop stop-color="#F71873" />
                                     <stop offset="1" stop-color="#F8A629" />
                                 </linearGradient>
-                                <linearGradient id="paint1_linear_28_1911" x1="229.666" y1="167.018" x2="225.584"
-                                    y2="165.53" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="paint1_linear_28_1911" x1="229.666" y1="167.018"
+                                    x2="225.584" y2="165.53" gradientUnits="userSpaceOnUse">
                                     <stop stop-color="#F71873" />
                                     <stop offset="1" stop-color="#C6211B" />
                                 </linearGradient>
-                                <linearGradient id="paint2_linear_28_1911" x1="231.994" y1="167.315" x2="229.889"
-                                    y2="163.655" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="paint2_linear_28_1911" x1="231.994" y1="167.315"
+                                    x2="229.889" y2="163.655" gradientUnits="userSpaceOnUse">
                                     <stop stop-color="#F71873" />
                                     <stop offset="1" stop-color="#C6211B" />
                                 </linearGradient>
-                                <linearGradient id="paint3_linear_28_1911" x1="237.106" y1="166.146" x2="233.757"
-                                    y2="160.525" gradientUnits="userSpaceOnUse">
+                                <linearGradient id="paint3_linear_28_1911" x1="237.106" y1="166.146"
+                                    x2="233.757" y2="160.525" gradientUnits="userSpaceOnUse">
                                     <stop stop-color="#F71873" />
                                     <stop offset="1" stop-color="#C6211B" />
                                 </linearGradient>
@@ -2604,8 +2619,12 @@
     <section class="earn-money-section">
         <div class="container">
             <div class="section-header wow fadeInUp">
-                <h2 class="title">{{ isset($landing_page_text['joinus_section_title']) ? $landing_page_text['joinus_section_title'] : '' }}</h2>
-                <div class="text">{{ isset($landing_page_text['joinus_section_title']) ? $landing_page_text['joinus_section_sub_title'] : '' }}</div>
+                <h2 class="title">
+                    {{ isset($landing_page_text['joinus_section_title']) ? $landing_page_text['joinus_section_title'] : '' }}
+                </h2>
+                <div class="text">
+                    {{ isset($landing_page_text['joinus_section_title']) ? $landing_page_text['joinus_section_sub_title'] : '' }}
+                </div>
             </div>
         </div>
         <div class="container-fluid p-0">
@@ -2617,14 +2636,15 @@
                     style="background: url({{ asset('public/assets/landing') }}/image/{{ isset($join_as_images['seller_banner_bg']) ? $join_as_images['seller_banner_bg'] : null }}) no-repeat center center / cover;">
                     <div class="position-relative">
                         @if (isset($landing_page_links['seller_app_url_status']))
-                            <a href="{{ isset($landing_page_links['seller_app_url']) ? $landing_page_links['seller_app_url'] : '' }}" class="cmn--btn">{{translate("messages.Download Seller App")}}</a>
+                            <a href="{{ isset($landing_page_links['seller_app_url']) ? $landing_page_links['seller_app_url'] : '' }}"
+                                class="cmn--btn">{{ translate('messages.Download Seller App') }}</a>
                         @endif
                     </div>
                 </div>
                 <div class="earn-item-cont">
                     <div>
-                        <h4 class="subtitle">{{translate("messages.Become a best")}} </h4>
-                        <h3 class="title">{{translate("messages.Seller")}}</h3>
+                        <h4 class="subtitle">{{ translate('messages.Become a best') }} </h4>
+                        <h3 class="title">{{ translate('messages.Seller') }}</h3>
                     </div>
                 </div>
             </div>
@@ -2634,14 +2654,15 @@
                     style="background: url({{ asset('public/assets/landing') }}/image/{{ isset($join_as_images['deliveryman_banner_bg']) ? $join_as_images['deliveryman_banner_bg'] : null }}) no-repeat center center / cover;">
                     <div class="position-relative">
                         @if (isset($landing_page_links['deliveryman_app_url_status']))
-                            <a href="{{ isset($landing_page_links['deliveryman_app_url']) ? $landing_page_links['deliveryman_app_url'] : '' }}" class="cmn--btn me-xl-auto">{{translate("messages.Download Deliveryman App")}}</a>
+                            <a href="{{ isset($landing_page_links['deliveryman_app_url']) ? $landing_page_links['deliveryman_app_url'] : '' }}"
+                                class="cmn--btn me-xl-auto">{{ translate('messages.Download Deliveryman App') }}</a>
                         @endif
                     </div>
                 </div>
                 <div class="earn-item-cont">
                     <div>
-                        <h4 class="subtitle">{{translate("messages.Become a smart")}}</h4>
-                        <h3 class="title">{{translate("messages.Deliveryman")}}</h3>
+                        <h4 class="subtitle">{{ translate('messages.Become a smart') }}</h4>
+                        <h3 class="title">{{ translate('messages.Deliveryman') }}</h3>
                     </div>
                 </div>
             </div>
@@ -2770,203 +2791,203 @@
                 </g>
             </g>
             <defs>
-                <linearGradient id="paint0_linear_28_738" x1="335.695" y1="596.025" x2="339.204" y2="566.937"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint0_linear_28_738" x1="335.695" y1="596.025" x2="339.204"
+                    y2="566.937" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint1_linear_28_738" x1="246.492" y1="760.202" x2="252.747" y2="708.351"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint1_linear_28_738" x1="246.492" y1="760.202" x2="252.747"
+                    y2="708.351" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint2_linear_28_738" x1="140.076" y1="601.021" x2="144.957" y2="560.561"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint2_linear_28_738" x1="140.076" y1="601.021" x2="144.957"
+                    y2="560.561" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint3_linear_28_738" x1="234.044" y1="757.929" x2="263.495" y2="513.798"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint3_linear_28_738" x1="234.044" y1="757.929" x2="263.495"
+                    y2="513.798" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint4_linear_28_738" x1="145.729" y1="1176.71" x2="152.567" y2="1196.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint4_linear_28_738" x1="145.729" y1="1176.71" x2="152.567"
+                    y2="1196.5" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint5_linear_28_738" x1="160.221" y1="1140.24" x2="173.208" y2="1177.83"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint5_linear_28_738" x1="160.221" y1="1140.24" x2="173.208"
+                    y2="1177.83" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint6_linear_28_738" x1="171.269" y1="1169.81" x2="177.223" y2="1187.04"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint6_linear_28_738" x1="171.269" y1="1169.81" x2="177.223"
+                    y2="1187.04" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint7_linear_28_738" x1="63.96" y1="209.194" x2="111.185" y2="272.258"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint7_linear_28_738" x1="63.96" y1="209.194" x2="111.185"
+                    y2="272.258" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint8_linear_28_738" x1="207.582" y1="591" x2="207.582" y2="633.714"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint8_linear_28_738" x1="207.582" y1="591" x2="207.582"
+                    y2="633.714" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint9_linear_28_738" x1="207.579" y1="636.285" x2="207.579" y2="670.939"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint9_linear_28_738" x1="207.579" y1="636.285" x2="207.579"
+                    y2="670.939" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint10_linear_28_738" x1="207.558" y1="656.695" x2="207.558" y2="670.914"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint10_linear_28_738" x1="207.558" y1="656.695" x2="207.558"
+                    y2="670.914" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint11_linear_28_738" x1="162.504" y1="447.264" x2="162.504" y2="489.032"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint11_linear_28_738" x1="162.504" y1="447.264" x2="162.504"
+                    y2="489.032" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint12_linear_28_738" x1="162.5" y1="435.293" x2="162.5" y2="444.245"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint12_linear_28_738" x1="162.5" y1="435.293" x2="162.5"
+                    y2="444.245" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint13_linear_28_738" x1="134.66" y1="407.213" x2="134.66" y2="432.333"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint13_linear_28_738" x1="134.66" y1="407.213" x2="134.66"
+                    y2="432.333" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint14_linear_28_738" x1="181.998" y1="414.442" x2="181.998" y2="432.256"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint14_linear_28_738" x1="181.998" y1="414.442" x2="181.998"
+                    y2="432.256" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint15_linear_28_738" x1="158.97" y1="414.352" x2="158.97" y2="432.281"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint15_linear_28_738" x1="158.97" y1="414.352" x2="158.97"
+                    y2="432.281" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint16_linear_28_738" x1="198.613" y1="408.032" x2="198.613" y2="432.269"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint16_linear_28_738" x1="198.613" y1="408.032" x2="198.613"
+                    y2="432.269" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint17_linear_28_738" x1="184.521" y1="406.809" x2="184.521" y2="411.32"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint17_linear_28_738" x1="184.521" y1="406.809" x2="184.521"
+                    y2="411.32" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint18_linear_28_738" x1="187.088" y1="400" x2="187.088" y2="403.784"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint18_linear_28_738" x1="187.088" y1="400" x2="187.088"
+                    y2="403.784" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint19_linear_28_738" x1="158.964" y1="408.173" x2="158.964" y2="411.262"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint19_linear_28_738" x1="158.964" y1="408.173" x2="158.964"
+                    y2="411.262" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint20_linear_28_738" x1="158.985" y1="420.646" x2="158.985" y2="426.631"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint20_linear_28_738" x1="158.985" y1="420.646" x2="158.985"
+                    y2="426.631" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint21_linear_28_738" x1="257" y1="261" x2="257" y2="322.558"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint21_linear_28_738" x1="257" y1="261" x2="257"
+                    y2="322.558" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint22_linear_28_738" x1="236.347" y1="261.011" x2="236.347" y2="273.267"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint22_linear_28_738" x1="236.347" y1="261.011" x2="236.347"
+                    y2="273.267" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint23_linear_28_738" x1="256.881" y1="265.124" x2="256.881" y2="273.267"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint23_linear_28_738" x1="256.881" y1="265.124" x2="256.881"
+                    y2="273.267" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint24_linear_28_738" x1="54.4097" y1="539.512" x2="41.7181" y2="574.747"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint24_linear_28_738" x1="54.4097" y1="539.512" x2="41.7181"
+                    y2="574.747" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint25_linear_28_738" x1="34.6336" y1="519.273" x2="27.2461" y2="539.783"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint25_linear_28_738" x1="34.6336" y1="519.273" x2="27.2461"
+                    y2="539.783" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint26_linear_28_738" x1="77.0332" y1="585.802" x2="72.7781" y2="597.616"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint26_linear_28_738" x1="77.0332" y1="585.802" x2="72.7781"
+                    y2="597.616" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint27_linear_28_738" x1="25.1143" y1="568.818" x2="21.3905" y2="579.156"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint27_linear_28_738" x1="25.1143" y1="568.818" x2="21.3905"
+                    y2="579.156" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint28_linear_28_738" x1="80.6957" y1="575.583" x2="78.0614" y2="582.896"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint28_linear_28_738" x1="80.6957" y1="575.583" x2="78.0614"
+                    y2="582.896" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint29_linear_28_738" x1="37.336" y1="511.863" x2="35.7569" y2="516.247"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint29_linear_28_738" x1="37.336" y1="511.863" x2="35.7569"
+                    y2="516.247" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint30_linear_28_738" x1="79.0917" y1="538.526" x2="76.9797" y2="544.389"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint30_linear_28_738" x1="79.0917" y1="538.526" x2="76.9797"
+                    y2="544.389" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint31_linear_28_738" x1="49.3977" y1="542.742" x2="47.8013" y2="547.174"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint31_linear_28_738" x1="49.3977" y1="542.742" x2="47.8013"
+                    y2="547.174" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint32_linear_28_738" x1="234.42" y1="1015.86" x2="257.227" y2="1070.62"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint32_linear_28_738" x1="234.42" y1="1015.86" x2="257.227"
+                    y2="1070.62" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint33_linear_28_738" x1="195.481" y1="1002.1" x2="220.039" y2="1061.06"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint33_linear_28_738" x1="195.481" y1="1002.1" x2="220.039"
+                    y2="1061.06" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint34_linear_28_738" x1="195.496" y1="1002.16" x2="201.314" y2="1016.13"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint34_linear_28_738" x1="195.496" y1="1002.16" x2="201.314"
+                    y2="1016.13" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint35_linear_28_738" x1="242.209" y1="1034.36" x2="245.473" y2="1042.2"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint35_linear_28_738" x1="242.209" y1="1034.36" x2="245.473"
+                    y2="1042.2" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint36_linear_28_738" x1="273.731" y1="855.976" x2="300.543" y2="895.036"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint36_linear_28_738" x1="273.731" y1="855.976" x2="300.543"
+                    y2="895.036" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint37_linear_28_738" x1="264.741" y1="874.07" x2="266.452" y2="876.563"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint37_linear_28_738" x1="264.741" y1="874.07" x2="266.452"
+                    y2="876.563" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint38_linear_28_738" x1="274.423" y1="120.768" x2="258.164" y2="136.425"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint38_linear_28_738" x1="274.423" y1="120.768" x2="258.164"
+                    y2="136.425" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint39_linear_28_738" x1="413.949" y1="73.6075" x2="277.487" y2="205.016"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint39_linear_28_738" x1="413.949" y1="73.6075" x2="277.487"
+                    y2="205.016" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
@@ -3054,8 +3075,7 @@
                 <path
                     d="M121.286 632.452C122.41 632.675 123.158 633.741 122.949 634.846C122.73 635.948 121.647 636.671 120.524 636.448C119.39 636.222 118.686 635.154 118.92 634.033C119.16 632.934 120.18 632.253 121.284 632.462L121.286 632.452Z"
                     fill="url(#paint25_linear_28_690)" />
-                <path
-                    d="M110.712 609.685C110.21 611.768 108.259 613.071 106.176 612.733L106.933 608.932L110.712 609.685Z"
+                <path d="M110.712 609.685C110.21 611.768 108.259 613.071 106.176 612.733L106.933 608.932L110.712 609.685Z"
                     fill="url(#paint26_linear_28_690)" />
                 <path
                     d="M125.011 623.937L126.251 622.427C126.97 623.585 127.664 624.705 128.334 625.832C128.532 626.155 128.492 626.409 128.083 626.601C127.493 626.876 126.954 627.227 126.266 627.614C126.859 626.008 125.439 625.19 125.011 623.937Z"
@@ -3097,200 +3117,200 @@
                 </g>
             </g>
             <defs>
-                <linearGradient id="paint0_linear_28_690" x1="133.527" y1="874.518" x2="37.4054" y2="822.459"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint0_linear_28_690" x1="133.527" y1="874.518" x2="37.4054"
+                    y2="822.459" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#CFFFE9" />
                     <stop offset="0.328125" stop-color="#A3F0CC" stop-opacity="0.67" />
                     <stop offset="0.796875" stop-color="#AEFCD8" stop-opacity="0.15" />
                     <stop offset="1" stop-color="white" />
                 </linearGradient>
-                <linearGradient id="paint1_linear_28_690" x1="131.335" y1="846.809" x2="114.294" y2="908.091"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint1_linear_28_690" x1="131.335" y1="846.809" x2="114.294"
+                    y2="908.091" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint2_linear_28_690" x1="88.3844" y1="834.878" x2="71.3536" y2="896.124"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint2_linear_28_690" x1="88.3844" y1="834.878" x2="71.3536"
+                    y2="896.124" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint3_linear_28_690" x1="125.883" y1="835.274" x2="118.201" y2="862.899"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint3_linear_28_690" x1="125.883" y1="835.274" x2="118.201"
+                    y2="862.899" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint4_linear_28_690" x1="102.564" y1="814.883" x2="94.8852" y2="842.495"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint4_linear_28_690" x1="102.564" y1="814.883" x2="94.8852"
+                    y2="842.495" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint5_linear_28_690" x1="57.4376" y1="72" x2="57.4376" y2="103.12"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint5_linear_28_690" x1="57.4376" y1="72" x2="57.4376"
+                    y2="103.12" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint6_linear_28_690" x1="58.079" y1="106.848" x2="58.079" y2="139.156"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint6_linear_28_690" x1="58.079" y1="106.848" x2="58.079"
+                    y2="139.156" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint7_linear_28_690" x1="131.715" y1="234.812" x2="106.11" y2="303.374"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint7_linear_28_690" x1="131.715" y1="234.812" x2="106.11"
+                    y2="303.374" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint8_linear_28_690" x1="90.1474" y1="301.717" x2="84.465" y2="316.933"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint8_linear_28_690" x1="90.1474" y1="301.717" x2="84.465"
+                    y2="316.933" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint9_linear_28_690" x1="135.806" y1="318.758" x2="130.121" y2="333.981"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint9_linear_28_690" x1="135.806" y1="318.758" x2="130.121"
+                    y2="333.981" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint10_linear_28_690" x1="292.008" y1="26.5939" x2="244.206" y2="79.0915"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint10_linear_28_690" x1="292.008" y1="26.5939" x2="244.206"
+                    y2="79.0915" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint11_linear_28_690" x1="106.447" y1="633.657" x2="100.211" y2="664.986"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint11_linear_28_690" x1="106.447" y1="633.657" x2="100.211"
+                    y2="664.986" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint12_linear_28_690" x1="105.633" y1="628.834" x2="101.045" y2="651.879"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint12_linear_28_690" x1="105.633" y1="628.834" x2="101.045"
+                    y2="651.879" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint13_linear_28_690" x1="110.672" y1="615.12" x2="108.09" y2="628.092"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint13_linear_28_690" x1="110.672" y1="615.12" x2="108.09"
+                    y2="628.092" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint14_linear_28_690" x1="134.147" y1="656.344" x2="131.026" y2="672.019"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint14_linear_28_690" x1="134.147" y1="656.344" x2="131.026"
+                    y2="672.019" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint15_linear_28_690" x1="137.189" y1="665.645" x2="134.611" y2="678.595"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint15_linear_28_690" x1="137.189" y1="665.645" x2="134.611"
+                    y2="678.595" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint16_linear_28_690" x1="81.7989" y1="658.57" x2="79.9766" y2="667.724"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint16_linear_28_690" x1="81.7989" y1="658.57" x2="79.9766"
+                    y2="667.724" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint17_linear_28_690" x1="106.202" y1="599.192" x2="103.533" y2="612.6"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint17_linear_28_690" x1="106.202" y1="599.192" x2="103.533"
+                    y2="612.6" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint18_linear_28_690" x1="82.4082" y1="628.063" x2="80.8982" y2="635.649"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint18_linear_28_690" x1="82.4082" y1="628.063" x2="80.8982"
+                    y2="635.649" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint19_linear_28_690" x1="130.641" y1="628.19" x2="128.716" y2="637.86"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint19_linear_28_690" x1="130.641" y1="628.19" x2="128.716"
+                    y2="637.86" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint20_linear_28_690" x1="99.2023" y1="635.674" x2="98.5126" y2="639.139"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint20_linear_28_690" x1="99.2023" y1="635.674" x2="98.5126"
+                    y2="639.139" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint21_linear_28_690" x1="83.5754" y1="622.134" x2="82.893" y2="625.562"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint21_linear_28_690" x1="83.5754" y1="622.134" x2="82.893"
+                    y2="625.562" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint22_linear_28_690" x1="110.474" y1="655.012" x2="109.807" y2="658.36"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint22_linear_28_690" x1="110.474" y1="655.012" x2="109.807"
+                    y2="658.36" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint23_linear_28_690" x1="72.9159" y1="641.183" x2="71.451" y2="648.542"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint23_linear_28_690" x1="72.9159" y1="641.183" x2="71.451"
+                    y2="648.542" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint24_linear_28_690" x1="123.786" y1="616.066" x2="122.432" y2="622.87"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint24_linear_28_690" x1="123.786" y1="616.066" x2="122.432"
+                    y2="622.87" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint25_linear_28_690" x1="121.328" y1="632.46" x2="120.534" y2="636.45"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint25_linear_28_690" x1="121.328" y1="632.46" x2="120.534"
+                    y2="636.45" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint26_linear_28_690" x1="108.823" y1="609.308" x2="108.066" y2="613.109"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint26_linear_28_690" x1="108.823" y1="609.308" x2="108.066"
+                    y2="613.109" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint27_linear_28_690" x1="127.219" y1="622.619" x2="126.226" y2="627.606"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint27_linear_28_690" x1="127.219" y1="622.619" x2="126.226"
+                    y2="627.606" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint28_linear_28_690" x1="136.957" y1="631.249" x2="135.715" y2="637.485"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint28_linear_28_690" x1="136.957" y1="631.249" x2="135.715"
+                    y2="637.485" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint29_linear_28_690" x1="87.1702" y1="423.977" x2="90.8294" y2="481.867"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint29_linear_28_690" x1="87.1702" y1="423.977" x2="90.8294"
+                    y2="481.867" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint30_linear_28_690" x1="115.903" y1="422.786" x2="116.764" y2="436.42"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint30_linear_28_690" x1="115.903" y1="422.786" x2="116.764"
+                    y2="436.42" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint31_linear_28_690" x1="391.397" y1="1041.64" x2="384.582" y2="1068.16"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint31_linear_28_690" x1="391.397" y1="1041.64" x2="384.582"
+                    y2="1068.16" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint32_linear_28_690" x1="395.053" y1="1061.42" x2="388.574" y2="1086.63"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint32_linear_28_690" x1="395.053" y1="1061.42" x2="388.574"
+                    y2="1086.63" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint33_linear_28_690" x1="395.26" y1="1079.31" x2="391.992" y2="1092.02"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint33_linear_28_690" x1="395.26" y1="1079.31" x2="391.992"
+                    y2="1092.02" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint34_linear_28_690" x1="411.281" y1="1068.91" x2="405.484" y2="1091.46"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint34_linear_28_690" x1="411.281" y1="1068.91" x2="405.484"
+                    y2="1091.46" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint35_linear_28_690" x1="156.06" y1="1006.67" x2="167.425" y2="1070.66"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint35_linear_28_690" x1="156.06" y1="1006.67" x2="167.425"
+                    y2="1070.66" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04F485" />
                     <stop offset="1" stop-color="#0DCB72" />
                 </linearGradient>
-                <linearGradient id="paint36_linear_28_690" x1="215.251" y1="817.538" x2="219.96" y2="778.506"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint36_linear_28_690" x1="215.251" y1="817.538" x2="219.96"
+                    y2="778.506" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint37_linear_28_690" x1="95.5501" y1="1037.85" x2="103.944" y2="968.268"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint37_linear_28_690" x1="95.5501" y1="1037.85" x2="103.944"
+                    y2="968.268" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
-                <linearGradient id="paint38_linear_28_690" x1="78.8463" y1="1034.8" x2="118.367" y2="707.199"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint38_linear_28_690" x1="78.8463" y1="1034.8" x2="118.367"
+                    y2="707.199" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#04B061" />
                     <stop offset="1" stop-color="#22FF98" />
                 </linearGradient>
@@ -3299,21 +3319,21 @@
         <!-- Shape 3 -->
         <svg class="e-shape-3" viewBox="0 0 567 122" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- <path
-            d="M-582.837 89.5926C-498.678 115.494 -378.341 128.602 -274.377 121.626C-192.545 116.161 -126.314 99.5684 -56.7372 85.8613C45.8295 65.6487 160.17 51.1155 280.868 42.9748C393.048 35.3853 561.343 50.5711 656.049 31.4276C718.216 18.883 765.813 -1.05388 781.239 -25.008C800.599 -54.9961 755.095 -93.1643 700.509 -113.085C589.774 -153.51 351.912 -158.264 222.748 -192.32C118.13 -219.91 95.7742 -258.665 -1.35038 -289.125C-82.4246 -314.547 -201.738 -325.361 -301.286 -317.236C-400.834 -309.111 -477.627 -282.721 -500.755 -250.113C-517.044 -227.101 -508.262 -202.147 -511.566 -178.071L-511.586 -177.657C-514.876 -155.413 -537.121 -134.597 -575.185 -117.39C-586.038 -112.47 -596.666 -107.515 -606.994 -102.497C-663.223 -75.0238 -709.701 -43.8916 -711.933 -9.20875C-714.194 26.0594 -666.917 63.6462 -582.759 89.5472L-582.837 89.5926Z"
-            fill="url(#paint0_linear_28_12)" /> -->
+                                                d="M-582.837 89.5926C-498.678 115.494 -378.341 128.602 -274.377 121.626C-192.545 116.161 -126.314 99.5684 -56.7372 85.8613C45.8295 65.6487 160.17 51.1155 280.868 42.9748C393.048 35.3853 561.343 50.5711 656.049 31.4276C718.216 18.883 765.813 -1.05388 781.239 -25.008C800.599 -54.9961 755.095 -93.1643 700.509 -113.085C589.774 -153.51 351.912 -158.264 222.748 -192.32C118.13 -219.91 95.7742 -258.665 -1.35038 -289.125C-82.4246 -314.547 -201.738 -325.361 -301.286 -317.236C-400.834 -309.111 -477.627 -282.721 -500.755 -250.113C-517.044 -227.101 -508.262 -202.147 -511.566 -178.071L-511.586 -177.657C-514.876 -155.413 -537.121 -134.597 -575.185 -117.39C-586.038 -112.47 -596.666 -107.515 -606.994 -102.497C-663.223 -75.0238 -709.701 -43.8916 -711.933 -9.20875C-714.194 26.0594 -666.917 63.6462 -582.759 89.5472L-582.837 89.5926Z"
+                                                fill="url(#paint0_linear_28_12)" /> -->
             <path
                 d="M0.771484 56.7829C2.51171 39.3589 24.7719 26.9408 54.061 19.8095C83.3362 12.7292 119.288 10.3136 155.143 8.25515C233.743 3.70573 306.53 -0.0574563 389.079 0.0314772C423.192 0.0674218 466.707 2.41053 502.013 4.2893C513.305 4.91499 525.072 5.70358 536.723 8.36127C548.374 11.019 560.178 15.9867 564.655 21.558C569.606 27.7792 564.004 33.0555 554.76 35.4425C545.392 37.8016 532.993 37.8981 520.962 38.0786C419.801 39.3776 321.934 48.6861 260.387 77.7089C243.206 85.8148 229.033 95.3111 212.083 103.524C195.134 111.737 174.739 118.73 148.349 120.944C121.96 123.157 88.4465 119.954 59.6276 110.022C21.5201 96.887 -0.954816 74.1559 0.785346 56.7319L0.771484 56.7829Z"
                 fill="url(#paint1_linear_28_12)" />
             <defs>
-                <linearGradient id="paint0_linear_28_12" x1="775.34" y1="173.511" x2="99.211" y2="-856.565"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint0_linear_28_12" x1="775.34" y1="173.511" x2="99.211"
+                    y2="-856.565" gradientUnits="userSpaceOnUse">
                     <stop stop-color="#CFFFE9" />
                     <stop offset="0.328125" stop-color="#A3F0CC" stop-opacity="0.67" />
                     <stop offset="0.796875" stop-color="#AEFCD8" stop-opacity="0.15" />
                     <stop offset="1" stop-color="white" />
                 </linearGradient>
-                <linearGradient id="paint1_linear_28_12" x1="542.96" y1="113.435" x2="6.2657" y2="-32.4356"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint1_linear_28_12" x1="542.96" y1="113.435" x2="6.2657"
+                    y2="-32.4356" gradientUnits="userSpaceOnUse">
                     <stop stop-color="white" />
                     <stop offset="1" stop-color="#D6FFEC" />
                 </linearGradient>
@@ -3326,8 +3346,8 @@
                 d="M0.771494 56.7829C2.51169 39.3589 24.7719 26.9408 54.061 19.8095C83.3362 12.7292 119.288 10.3136 155.143 8.25516C233.743 3.70574 306.53 -0.0574518 389.079 0.0314811C423.192 0.0674279 466.707 2.41053 502.013 4.2893C513.305 4.91499 525.072 5.70357 536.723 8.36126C548.374 11.0189 560.178 15.9867 564.655 21.558C569.606 27.7792 564.004 33.0555 554.76 35.4425C545.392 37.8015 532.993 37.8981 520.962 38.0786C419.802 39.3776 321.934 48.6861 260.387 77.7089C243.206 85.8148 229.033 95.3111 212.083 103.524C195.134 111.737 174.739 118.73 148.349 120.944C121.96 123.157 88.4465 119.954 59.6276 110.022C21.5201 96.887 -0.954838 74.1559 0.785356 56.7319L0.771494 56.7829Z"
                 fill="url(#paint0_linear_28_689)" />
             <defs>
-                <linearGradient id="paint0_linear_28_689" x1="542.96" y1="113.435" x2="6.2657" y2="-32.4356"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint0_linear_28_689" x1="542.96" y1="113.435" x2="6.2657"
+                    y2="-32.4356" gradientUnits="userSpaceOnUse">
                     <stop stop-color="white" />
                     <stop offset="1" stop-color="#D6FFEC" />
                 </linearGradient>
@@ -3342,97 +3362,99 @@
     @php($special = \App\Models\BusinessSetting::where(['key' => 'speciality'])->first())
     @php($special = isset($special->value) ? json_decode($special->value, true) : null)
     @if ($special && count($special) > 0)
-    <section class="special-feature-section pt-80 pb-80 overflow-hidden position-relative">
-        <div class="container">
-            <div class="section-header wow fadeInUp">
-                @php($business_name = \App\Models\BusinessSetting::where(['key' => 'business_name'])->first()->value ?? '')
-                <h2 class="title">{{translate("What is so special about")}} <span class="text--base">{{$business_name ?? ''}}</span></h2>
-            </div>
-            <div class="special-feature-wrapper wow fadeInUp">
-                @foreach ($special as $item)
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <img src="{{ asset('public/assets/landing') }}/image/{{ isset($item['img']) ? $item['img'] : null }}" alt="{{$item['title']}}"
-                        onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'">
-                    </div>
-                    <div class="feature-card-cont">
-                        <h4 class="subtitle">
-                            @php($arr = explode(' ',trim($item['title'])))
-                            @isset($arr[0])
-                                {{$arr[0]}}
-                            @endisset
-                            <br>
-                            @if(count($arr)>1)
-                            @php(array_shift($arr))
-                            {{ implode(' ', $arr) }}
-                            @endif
-                        </h4>
-                    </div>
+        <section class="special-feature-section pt-80 pb-80 overflow-hidden position-relative">
+            <div class="container">
+                <div class="section-header wow fadeInUp">
+                    @php($business_name = \App\Models\BusinessSetting::where(['key' => 'business_name'])->first()->value ?? '')
+                    <h2 class="title">{{ translate('What is so special about') }} <span
+                            class="text--base">{{ $business_name ?? '' }}</span></h2>
                 </div>
-                @endforeach
+                <div class="special-feature-wrapper wow fadeInUp">
+                    @foreach ($special as $item)
+                        <div class="feature-card">
+                            <div class="feature-card-icon">
+                                <img src="{{ asset('public/assets/landing') }}/image/{{ isset($item['img']) ? $item['img'] : null }}"
+                                    alt="{{ $item['title'] }}"
+                                    onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'">
+                            </div>
+                            <div class="feature-card-cont">
+                                <h4 class="subtitle">
+                                    @php($arr = explode(' ', trim($item['title'])))
+                                    @isset($arr[0])
+                                        {{ $arr[0] }}
+                                    @endisset
+                                    <br>
+                                    @if (count($arr) > 1)
+                                        @php(array_shift($arr))
+                                        {{ implode(' ', $arr) }}
+                                    @endif
+                                </h4>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </div>
-        <!-- Shape 1 -->
-        <svg class="s-shape-1" width="152" height="537" viewBox="0 0 152 537" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M83.2873 13.7046C81.6228 5.40203 89.5703 -1.589 97.5928 1.12076L143.54 16.6403C151.563 19.3501 153.643 29.7283 147.285 35.3212L110.871 67.3528C104.513 72.9456 94.4851 69.5584 92.8206 61.2558L83.2873 13.7046Z"
-                fill="url(#paint0_linear_28_12)" />
-            <path
-                d="M12.2376 276.382C3.78116 276.82 -1.97923 267.94 1.86888 260.398L23.9081 217.197C27.7562 209.654 38.3267 209.106 42.935 216.21L69.3281 256.896C73.9364 264 69.1262 273.429 60.6698 273.868L12.2376 276.382Z"
-                fill="url(#paint1_linear_28_12)" />
-            <path
-                d="M123.58 527.141C122.616 535.553 112.907 539.768 106.103 534.727L43.806 488.572C37.0021 483.531 38.2067 473.015 45.9742 469.643L117.095 438.77C124.862 435.398 133.367 441.699 132.403 450.112L123.58 527.141Z"
-                fill="url(#paint2_linear_28_12)" />
-            <defs>
-                <linearGradient id="paint0_linear_28_12" x1="79.5421" y1="-4.97621" x2="145.59" y2="70.108"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-                <linearGradient id="paint1_linear_28_12" x1="-6.78937" y1="277.369" x2="77.1052" y2="222.948"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-                <linearGradient id="paint2_linear_28_12" x1="121.412" y1="546.069" x2="68.2419" y2="423.585"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <!-- Shape 2 -->
-        <svg class="s-shape-2" width="151" height="537" viewBox="0 0 151 537" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M67.845 13.7046C69.5095 5.40203 61.562 -1.589 53.5395 1.12076L7.59235 16.6403C-0.430176 19.3501 -2.51085 29.7283 3.84714 35.3212L40.2611 67.3528C46.6191 72.9456 56.6472 69.5584 58.3117 61.2558L67.845 13.7046Z"
-                fill="url(#paint0_linear_28_12)" />
-            <path
-                d="M138.895 276.382C147.351 276.82 153.112 267.94 149.263 260.398L127.224 217.197C123.376 209.654 112.806 209.106 108.197 216.21L81.8043 256.896C77.1959 264 82.0061 273.429 90.4625 273.868L138.895 276.382Z"
-                fill="url(#paint1_linear_28_12)" />
-            <path
-                d="M27.5523 527.141C28.5159 535.553 38.2253 539.768 45.0292 534.727L107.326 488.572C114.13 483.531 112.926 473.015 105.158 469.643L34.0377 438.77C26.2702 435.398 17.7654 441.699 18.729 450.112L27.5523 527.141Z"
-                fill="url(#paint2_linear_28_12)" />
-            <defs>
-                <linearGradient id="paint0_linear_28_12" x1="71.5902" y1="-4.97621" x2="5.54207" y2="70.108"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-                <linearGradient id="paint1_linear_28_12" x1="157.922" y1="277.369" x2="74.0271" y2="222.948"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-                <linearGradient id="paint2_linear_28_12" x1="29.7205" y1="546.069" x2="82.8904" y2="423.585"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="white" />
-                    <stop offset="1" stop-color="#D1FFEA" />
-                </linearGradient>
-            </defs>
-        </svg>
-    </section>
+            <!-- Shape 1 -->
+            <svg class="s-shape-1" width="152" height="537" viewBox="0 0 152 537" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M83.2873 13.7046C81.6228 5.40203 89.5703 -1.589 97.5928 1.12076L143.54 16.6403C151.563 19.3501 153.643 29.7283 147.285 35.3212L110.871 67.3528C104.513 72.9456 94.4851 69.5584 92.8206 61.2558L83.2873 13.7046Z"
+                    fill="url(#paint0_linear_28_12)" />
+                <path
+                    d="M12.2376 276.382C3.78116 276.82 -1.97923 267.94 1.86888 260.398L23.9081 217.197C27.7562 209.654 38.3267 209.106 42.935 216.21L69.3281 256.896C73.9364 264 69.1262 273.429 60.6698 273.868L12.2376 276.382Z"
+                    fill="url(#paint1_linear_28_12)" />
+                <path
+                    d="M123.58 527.141C122.616 535.553 112.907 539.768 106.103 534.727L43.806 488.572C37.0021 483.531 38.2067 473.015 45.9742 469.643L117.095 438.77C124.862 435.398 133.367 441.699 132.403 450.112L123.58 527.141Z"
+                    fill="url(#paint2_linear_28_12)" />
+                <defs>
+                    <linearGradient id="paint0_linear_28_12" x1="79.5421" y1="-4.97621" x2="145.59"
+                        y2="70.108" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_28_12" x1="-6.78937" y1="277.369" x2="77.1052"
+                        y2="222.948" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_28_12" x1="121.412" y1="546.069" x2="68.2419"
+                        y2="423.585" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <!-- Shape 2 -->
+            <svg class="s-shape-2" width="151" height="537" viewBox="0 0 151 537" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M67.845 13.7046C69.5095 5.40203 61.562 -1.589 53.5395 1.12076L7.59235 16.6403C-0.430176 19.3501 -2.51085 29.7283 3.84714 35.3212L40.2611 67.3528C46.6191 72.9456 56.6472 69.5584 58.3117 61.2558L67.845 13.7046Z"
+                    fill="url(#paint0_linear_28_12)" />
+                <path
+                    d="M138.895 276.382C147.351 276.82 153.112 267.94 149.263 260.398L127.224 217.197C123.376 209.654 112.806 209.106 108.197 216.21L81.8043 256.896C77.1959 264 82.0061 273.429 90.4625 273.868L138.895 276.382Z"
+                    fill="url(#paint1_linear_28_12)" />
+                <path
+                    d="M27.5523 527.141C28.5159 535.553 38.2253 539.768 45.0292 534.727L107.326 488.572C114.13 483.531 112.926 473.015 105.158 469.643L34.0377 438.77C26.2702 435.398 17.7654 441.699 18.729 450.112L27.5523 527.141Z"
+                    fill="url(#paint2_linear_28_12)" />
+                <defs>
+                    <linearGradient id="paint0_linear_28_12" x1="71.5902" y1="-4.97621" x2="5.54207"
+                        y2="70.108" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_28_12" x1="157.922" y1="277.369" x2="74.0271"
+                        y2="222.948" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_28_12" x1="29.7205" y1="546.069" x2="82.8904"
+                        y2="423.585" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white" />
+                        <stop offset="1" stop-color="#D1FFEA" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </section>
     @endif
     <!-- ==== Special Feature Section Ends Here ==== -->
 
@@ -3450,15 +3472,17 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M1.72825 34.2238C1.23767 34.0386 0.764414 33.8361 0.441208 33.3906C0.175717 33.0319 0.00256513 32.6384 0.00256513 32.1871C-0.00320641 29.3462 0.00256513 26.5053 0.00256513 23.6643C0.00256513 23.6354 0.0141075 23.6007 0.0198791 23.5486H4.25619V29.919H27.7291V23.5428H32V23.9305C32 26.5689 32 29.2131 32 31.8515C32 33.0955 31.521 33.7667 30.3493 34.1659C30.3205 34.1775 30.2974 34.2006 30.2685 34.2238H1.72825Z"
-                                        fill="#6DEBB0" />
+                                        fill="#ffac15" />
                                     <path
                                         d="M12.7978 14.9741V14.5286C12.7978 10.1081 12.7978 5.68184 12.7978 1.26134C12.7978 0.387657 13.1845 0 14.056 0C15.3777 0 16.6994 0 18.0211 0C18.7771 0 19.1927 0.422373 19.1927 1.18034C19.1927 5.63555 19.1927 10.0908 19.1927 14.546V14.9741H19.5794C20.826 14.9741 22.0669 14.9857 23.3136 14.9741C23.8215 14.9741 24.2139 15.1419 24.4275 15.6048C24.6468 16.0735 24.5025 16.4901 24.1735 16.8604C22.696 18.5499 21.2185 20.2452 19.741 21.9405C18.8176 22.9993 17.8999 24.0523 16.9764 25.1112C16.3069 25.8749 15.6894 25.8807 15.0256 25.1228C12.6478 22.4033 10.2641 19.6781 7.89778 16.9472C7.70732 16.7273 7.53417 16.4496 7.48223 16.1718C7.36102 15.5354 7.88046 14.9857 8.5615 14.9799C9.83701 14.9741 11.1183 14.9799 12.3938 14.9799C12.515 14.9799 12.6362 14.9799 12.7978 14.9799V14.9741Z"
-                                        fill="#6DEBB0" />
+                                        fill="#ffac15" />
                                 </svg>
                             </div>
-                            <h4 class="title"> <span class=" odometer" data-odometer-final="{{$counter['app_download_count_numbers'] ?? 0}}"></span> <span>+</span>
+                            <h4 class="title"> <span class=" odometer"
+                                    data-odometer-final="{{ $counter['app_download_count_numbers'] ?? 0 }}"></span>
+                                <span>+</span>
                             </h4>
-                            <div class="text">{{translate("messages.Download")}}</div>
+                            <div class="text">{{ translate('messages.Download') }}</div>
                         </div>
                         <div class="counter-item wow fadeInUp">
                             <div class="icon">
@@ -3466,19 +3490,21 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15.9963 0.00515352C19.0717 0.00515352 22.147 0.00515352 25.2172 0.00515352C25.9951 0.00515352 26.742 0.165252 27.4117 0.593884C28.1638 1.07932 28.6789 1.74551 28.9571 2.59244C29.8689 5.33465 30.8116 8.06136 31.6873 10.8139C32.8361 14.4444 30.7189 17.9715 26.9893 18.6326C25.2739 18.9373 23.6873 18.5086 22.2758 17.4654C22.1522 17.3725 22.0337 17.2692 21.91 17.1711C21.2919 16.6753 20.7098 16.665 20.1071 17.1608C18.8038 18.2349 17.3047 18.7462 15.6254 18.6532C14.2758 18.5809 13.0703 18.1006 12.0092 17.2537C11.2365 16.6392 10.7574 16.6392 9.98983 17.2537C7.749 19.0302 4.60667 19.1645 2.4328 17.5791C0.300147 16.0195 -0.52922 13.3186 0.341358 10.6641C1.21194 8.00457 2.09797 5.35014 2.9943 2.70089C3.58156 0.960538 4.93121 0.00516424 6.78054 0C9.8559 0 12.9313 0 16.0015 0L15.9963 0.00515352Z"
-                                        fill="#7FBDF4" />
+                                        fill="#ff0000ab" />
                                     <path
                                         d="M2.2771 20.5944C3.0395 20.7958 3.73493 21.0231 4.44067 21.1573C6.64544 21.5808 8.70598 21.147 10.6171 20.0005C10.9056 19.825 11.1065 19.8301 11.3847 20.0005C12.7807 20.8578 14.3158 21.2813 15.9436 21.2916C17.6384 21.3019 19.2353 20.8578 20.688 19.9644C20.8992 19.8353 21.0538 19.8095 21.2856 19.9489C23.851 21.5343 26.5451 21.7564 29.3526 20.6719C29.4505 20.6358 29.5432 20.5996 29.6926 20.5428C29.7029 20.6771 29.7235 20.7855 29.7235 20.894C29.7235 24.3127 29.7338 27.7366 29.7235 31.1553C29.7183 33.0402 28.5696 34.5172 26.813 34.9252C26.4987 34.9975 26.1691 35.0336 25.8497 35.0388C24.7937 35.0543 23.7376 35.0336 22.6867 35.0491C22.3725 35.0491 22.2849 34.9562 22.2901 34.6463C22.3055 33.0919 22.3004 31.5375 22.2901 29.983C22.2849 27.9535 20.6108 26.2699 18.5863 26.2648C16.8657 26.2648 15.1503 26.2648 13.4298 26.2648C11.4053 26.2699 9.72595 27.9535 9.7208 29.9779C9.7208 31.5323 9.7105 33.0867 9.7208 34.6412C9.7208 34.9407 9.64868 35.0595 9.3293 35.0491C8.05691 35.013 6.77938 35.0491 5.507 34.9613C3.93068 34.8581 2.49346 33.3914 2.34922 31.8215C2.30801 31.3567 2.28225 30.8868 2.28225 30.4168C2.2771 27.2821 2.28225 24.1474 2.28225 21.0179V20.5944H2.2771Z"
-                                        fill="#7FBDF4" />
+                                        fill="#ff0000ab" />
                                     <path
                                         d="M12.2562 35.043C12.2562 33.344 12.2458 31.6707 12.2562 29.9975C12.2613 29.352 12.7919 28.8253 13.4358 28.8201C15.1409 28.8046 16.8512 28.8046 18.5563 28.8201C19.195 28.8201 19.7308 29.3572 19.7359 29.9975C19.7514 31.6707 19.7359 33.3388 19.7359 35.043H12.2458H12.2562Z"
-                                        fill="#7FBDF4" />
+                                        fill="#ff0000ab" />
                                 </svg>
 
                             </div>
-                            <h4 class="title"> <span class=" odometer" data-odometer-final="{{$counter['seller_count_numbers'] ?? 0}}"></span> <span>+</span>
+                            <h4 class="title"> <span class=" odometer"
+                                    data-odometer-final="{{ $counter['seller_count_numbers'] ?? 0 }}"></span>
+                                <span>+</span>
                             </h4>
-                            <div class="text">{{translate("messages.Seller")}}</div>
+                            <div class="text">{{ translate('messages.Seller') }}</div>
                         </div>
                         <div class="counter-item wow fadeInUp">
                             <div class="icon">
@@ -3486,34 +3512,36 @@
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M2.89821 20.0516C2.40405 15.6726 5.28959 12.687 8.5281 12.1385C9.00902 12.0589 9.50318 12.0279 9.99293 12.0191C11.1533 12.0014 12.3137 12.0147 13.4741 12.0147C14.2065 12.0147 14.4315 12.3464 14.1448 13.0099C13.88 13.638 13.5976 14.2572 13.3506 14.8897C12.7549 16.398 13.58 18.0877 15.1816 18.2381C16.8229 18.3929 18.5216 18.415 20.1453 18.1717C22.1395 17.8798 23.2867 15.8982 23.022 13.7972C22.8146 12.1562 22.669 10.5108 22.4969 8.86535C22.4484 8.40092 22.3999 7.93648 22.3425 7.43224C22.7352 7.43224 23.0926 7.41013 23.4411 7.44551C23.5294 7.45436 23.6353 7.62686 23.675 7.74629C24.2927 9.73672 24.8971 11.7316 25.506 13.7264C25.7001 14.3545 25.8899 14.9826 26.0928 15.6372C25.9958 15.677 25.9075 15.7124 25.8193 15.7478C24.3633 16.3449 23.3264 17.3269 22.9381 18.9015C22.7837 19.5341 22.8367 20.1047 23.472 20.4762C23.525 20.5072 23.5603 20.6222 23.5558 20.6929C23.5426 20.8433 23.4985 20.9937 23.4588 21.1795H23.1279C19.682 21.1795 16.2317 21.1795 12.7858 21.1795C12.5829 21.1795 12.4549 21.1485 12.3446 20.9362C12.0181 20.3214 11.4754 20.0339 10.7783 20.0339C8.28102 20.0339 5.77934 20.0339 3.28206 20.0339H2.8938L2.89821 20.0516ZM8.03394 17.7648C7.29711 17.7648 6.56028 17.7648 5.82787 17.7648C5.40872 17.7648 5.1484 17.9904 5.15281 18.3398C5.15722 18.6671 5.41313 18.9015 5.81463 18.9015C7.27505 18.906 8.73547 18.906 10.1959 18.9015C10.5974 18.9015 10.8489 18.6715 10.8489 18.3354C10.8489 17.9815 10.6018 17.7648 10.1738 17.7648C9.45906 17.7648 8.7487 17.7648 8.03394 17.7648ZM8.56781 16.6059C9.12374 16.6059 9.67967 16.6148 10.24 16.6059C10.6195 16.5971 10.8533 16.3626 10.8489 16.0353C10.8489 15.7036 10.6106 15.4824 10.2312 15.4824C9.12815 15.4824 8.02511 15.4692 6.92649 15.4913C6.74559 15.4913 6.50734 15.6107 6.39703 15.7522C6.12348 16.1149 6.40586 16.5838 6.90443 16.6059C7.46036 16.628 8.01629 16.6103 8.57222 16.6103L8.56781 16.6059Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M10.2756 10.8829C10.1521 10.8873 10.0329 10.9006 9.91381 10.9006C6.8915 10.9006 3.86918 10.9006 0.846869 10.9006C0.158575 10.9006 0.00415039 10.7414 0.00415039 10.0514C0.00415039 7.79112 0.00415039 5.53529 0.00415039 3.27505V2.89465H1.73371C1.73371 3.08485 1.72488 3.27062 1.73371 3.4564C1.74694 3.76602 1.96314 3.9916 2.24993 4.01372C2.52789 4.03583 2.78821 3.83237 2.83233 3.52717C2.86322 3.32813 2.8588 3.12908 2.87204 2.89908H7.42978C7.42978 3.03177 7.42978 3.18658 7.42978 3.33697C7.4386 3.7439 7.67686 4.02256 8.01218 4.01372C8.33868 4.00487 8.5637 3.73948 8.56811 3.34582C8.56811 3.20428 8.56811 3.05831 8.56811 2.89465H10.2712V10.8829H10.2756Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M31.4645 21.8582C31.3322 23.7336 29.9379 25.1491 28.1334 25.2154C25.8832 25.295 24.1536 23.1852 24.661 20.9824C24.7228 20.717 24.8199 20.602 25.1243 20.6064C27.0524 20.6241 28.9805 20.6241 30.9086 20.6064C31.1954 20.6064 31.3101 20.7082 31.341 20.9691C31.3763 21.2655 31.4248 21.5619 31.4645 21.8626V21.8582Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M4.62678 21.1986H4.97534C6.88138 21.1986 8.78743 21.1986 10.6935 21.1986C11.2494 21.1986 11.4744 21.4242 11.4391 21.9682C11.3156 23.9144 9.68309 25.3387 7.75058 25.2281C6.02543 25.1308 4.54736 23.5473 4.57384 21.7515C4.57384 21.5746 4.60913 21.4021 4.63119 21.1986H4.62678Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M31.9999 19.4743H24.0095C24.0272 18.8727 24.2743 18.3817 24.636 17.9527C25.3243 17.1344 26.1935 16.6567 27.2701 16.6346C27.9672 16.6213 28.6908 16.5815 29.3659 16.7275C30.6851 17.0194 31.6072 17.82 31.9646 19.1823C31.9867 19.2664 31.9867 19.3548 31.9999 19.4743Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M0.0039219 1.70243C0.0039219 1.31319 -0.00490238 0.946069 0.0039219 0.578945C0.0127462 0.260476 0.228941 0.0393172 0.542203 0.00393172C0.630445 -0.00491465 0.718688 0.00393172 0.811343 0.00393172C3.69688 0.00393172 6.58683 0.00393172 9.47237 0.00393172C10.121 0.00393172 10.2974 0.185282 10.3019 0.844336C10.3019 1.123 10.3019 1.40166 10.3019 1.71128H0.0039219V1.70243Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M25.1394 4.01562V6.28029C25.0379 6.28914 24.9497 6.30241 24.8658 6.30241C23.8422 6.30241 22.8142 6.30683 21.7906 6.30241C21.0802 6.30241 20.5684 5.82028 20.564 5.16565C20.5596 4.50217 21.0846 4.01562 21.8082 4.01562C22.9113 4.01562 24.0099 4.01562 25.1394 4.01562Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                     <path
                                         d="M11.4383 10.8974C11.4383 10.4595 11.425 10.0836 11.4383 9.70318C11.4559 9.38028 11.65 9.18124 11.9721 9.17682C12.6737 9.16355 13.3752 9.16355 14.0767 9.18124C14.4959 9.19451 14.8224 9.54836 14.8533 9.95972C14.8841 10.3932 14.6018 10.7957 14.1694 10.8532C13.8076 10.9019 13.437 10.8886 13.0707 10.893C12.5369 10.8974 12.003 10.893 11.4338 10.893L11.4383 10.8974Z"
-                                        fill="#F9AD76" />
+                                        fill="#61b2fa" />
                                 </svg>
 
                             </div>
-                            <h4 class="title"> <span class=" odometer" data-odometer-final="{{$counter['deliveryman_count_numbers'] ?? 0}}"></span> <span>+</span>
+                            <h4 class="title"> <span class=" odometer"
+                                    data-odometer-final="{{ $counter['deliveryman_count_numbers'] ?? 0 }}"></span>
+                                <span>+</span>
                             </h4>
-                            <div class="text">{{translate("messages.Deliveryman")}}</div>
+                            <div class="text">{{ translate('messages.Deliveryman') }}</div>
                         </div>
                         {{-- <div class="counter-item wow fadeInUp">
                             <div class="icon">
@@ -3533,8 +3561,8 @@
                     @php($fav = \App\Models\BusinessSetting::where(['key' => 'icon'])->first()->value ?? '')
                     <div class="right-side d-flex word-nowrap align-items-center">
                         <img onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'"
-                        src="{{ asset('storage/app/public/business/' . $fav) }}" alt="">
-                        {{translate("messages.Still increasing")}}
+                            src="{{ asset('storage/app/public/business/' . $fav) }}" alt="">
+                        {{ translate('messages.Still increasing') }}
                     </div>
                 </div>
                 <div class="counter-bg"></div>
@@ -3546,30 +3574,38 @@
     <!-- ==== Download App Starts Here ==== -->
     @php($download = \App\Models\BusinessSetting::where(['key' => 'download_app_section'])->first())
     @php($download = isset($download->value) ? json_decode($download->value, true) : null)
-    @if (isset($landing_page_links['app_url_android_status'] ) || isset($landing_page_links['app_url_ios_status']))
-    <section class="download-app-section pb-30">
-        <div class="container">
-            <div class="row justify-content-center g-4">
-                <div class="col-lg-6 col-md-9">
-                    <div class="download-app-content wow fadeInUp">
-                        <h2 class="title">{{ isset($landing_page_text['download_app_section_title']) ? $landing_page_text['download_app_section_title'] : '' }}</h2>
-                        <h3 class="subtitle">{{ isset($landing_page_text['download_app_section_sub_title']) ? $landing_page_text['download_app_section_sub_title'] : '' }}</h3>
-                        <div class="btn-grp justify-content-xl-center">
-                            @if (isset($landing_page_links['seller_app_url_status']))
-                                <a href="{{ isset($landing_page_links['seller_app_url']) ? $landing_page_links['seller_app_url'] : '' }}" class="cmn--btn">{{translate("messages.Download the Seller App")}}</a>
-                            @endif
-                            @if (isset($landing_page_links['deliveryman_app_url_status']))
-                            <a href="{{ isset($landing_page_links['deliveryman_app_url']) ? $landing_page_links['deliveryman_app_url'] : ''}}" class="cmn--btn me-xl-auto">{{translate("messages.Download the deliveryman App")}}</a>
-                            @endif
+    @if (isset($landing_page_links['app_url_android_status']) || isset($landing_page_links['app_url_ios_status']))
+        <section class="download-app-section pb-30">
+            <div class="container">
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-6 col-md-9">
+                        <div class="download-app-content wow fadeInUp">
+                            <h2 class="title">
+                                {{ isset($landing_page_text['download_app_section_title']) ? $landing_page_text['download_app_section_title'] : '' }}
+                            </h2>
+                            <h3 class="subtitle">
+                                {{ isset($landing_page_text['download_app_section_sub_title']) ? $landing_page_text['download_app_section_sub_title'] : '' }}
+                            </h3>
+                            <div class="btn-grp justify-content-xl-center">
+                                @if (isset($landing_page_links['seller_app_url_status']))
+                                    <a href="{{ isset($landing_page_links['seller_app_url']) ? $landing_page_links['seller_app_url'] : '' }}"
+                                        class="cmn--btn">{{ translate('messages.Download the Seller App') }}</a>
+                                @endif
+                                @if (isset($landing_page_links['deliveryman_app_url_status']))
+                                    <a href="{{ isset($landing_page_links['deliveryman_app_url']) ? $landing_page_links['deliveryman_app_url'] : '' }}"
+                                        class="cmn--btn me-xl-auto">{{ translate('messages.Download the deliveryman App') }}</a>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-9">
-                    <img class="mw-100" src="{{ asset('public/assets/landing') }}/image/{{ isset($download['img']) ? $download['img'] : null }}" alt="">
+                    <div class="col-lg-6 col-md-9">
+                        <img class="mw-100"
+                            src="{{ asset('public/assets/landing') }}/image/{{ isset($download['img']) ? $download['img'] : null }}"
+                            alt="">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!-- ==== Download App Ends Here ==== -->
 
@@ -3577,115 +3613,121 @@
     @php($testimonial = \App\Models\BusinessSetting::where(['key' => 'testimonial'])->first())
     @php($testimonial = isset($testimonial->value) ? json_decode($testimonial->value, true) : null)
     @if ($testimonial && count($testimonial) > 0)
-    <section class="testimonial-section overflow-hidden position-relative">
-        <div class="container">
-            <div class="section-header wow fadeInUp">
-                <h2 class="title">{{ isset($landing_page_text['testimonial_title']) ? $landing_page_text['testimonial_title'] : '' }}</span></h2>
-            </div>
-            <div class="testimonial-slider owl-theme owl-carousel wow fadeInUp">
-                @foreach ($testimonial as $data)
-                    <div class="testimonial-item">
-                        <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M14.1 19.5V11.24C14.1 8.25333 15.0333 5.87333 16.9 4.1C18.8133 2.28 21.0767 1.16 23.69 0.739996V4.03C22.43 4.45 21.31 5.22 20.33 6.34C19.3967 7.46 18.93 8.81333 18.93 10.4H23.55V19.5H14.1ZM0.24 19.5V11.24C0.24 8.25333 1.17333 5.87333 3.04 4.1C4.95333 2.28 7.21667 1.16 9.83 0.739996V4.03C8.57 4.45 7.45 5.22 6.47 6.34C5.53667 7.46 5.07 8.81333 5.07 10.4H9.69V19.5H0.24Z"
-                                fill="#71DAA6" />
-                        </svg>
-                        <blockquote>
-                            {{ $data['detail'] }}
-                        </blockquote>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="user">
-                                <img src="{{ asset('public/assets/landing') }}/image/{{ $data['img'] }}" alt="">
-                                <div>
-                                    <h6 class="name">{{ $data['name'] }}</h6>
-                                    <span class="designation">{{ $data['position'] }}</span>
+        <section class="testimonial-section overflow-hidden position-relative">
+            <div class="container">
+                <div class="section-header wow fadeInUp">
+                    <h2 class="title">
+                        {{ isset($landing_page_text['testimonial_title']) ? $landing_page_text['testimonial_title'] : '' }}</span>
+                    </h2>
+                </div>
+                <div class="testimonial-slider owl-theme owl-carousel wow fadeInUp">
+                    @foreach ($testimonial as $data)
+                        <div class="testimonial-item">
+                            <svg width="24" height="20" viewBox="0 0 24 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.1 19.5V11.24C14.1 8.25333 15.0333 5.87333 16.9 4.1C18.8133 2.28 21.0767 1.16 23.69 0.739996V4.03C22.43 4.45 21.31 5.22 20.33 6.34C19.3967 7.46 18.93 8.81333 18.93 10.4H23.55V19.5H14.1ZM0.24 19.5V11.24C0.24 8.25333 1.17333 5.87333 3.04 4.1C4.95333 2.28 7.21667 1.16 9.83 0.739996V4.03C8.57 4.45 7.45 5.22 6.47 6.34C5.53667 7.46 5.07 8.81333 5.07 10.4H9.69V19.5H0.24Z"
+                                    fill="#71DAA6" />
+                            </svg>
+                            <blockquote>
+                                {{ $data['detail'] }}
+                            </blockquote>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="user">
+                                    <img src="{{ asset('public/assets/landing') }}/image/{{ $data['img'] }}"
+                                        alt="">
+                                    <div>
+                                        <h6 class="name">{{ $data['name'] }}</h6>
+                                        <span class="designation">{{ $data['position'] }}</span>
+                                    </div>
                                 </div>
+                                @if (isset($data['brand_image']))
+                                    <img style="max-height: 35px; max-width:75px"
+                                        src="{{ asset('public/assets/landing') }}/image/{{ $data['brand_image'] }}"
+                                        alt="">
+                                @endif
                             </div>
-                            @if (isset($data['brand_image']))
-                            <img style="max-height: 35px; max-width:75px" src="{{ asset('public/assets/landing') }}/image/{{ $data['brand_image'] }}" alt="">
-                            @endif
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-        <svg class="testimonial-shape" viewBox="0 0 1362 379" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M213.286 24.3464L208.81 15.9086C207.191 12.8576 206.852 9.92199 207.793 7.10169C208.756 4.2085 210.454 1.84123 212.889 -0.000116383L214.672 3.3607C213.616 4.47068 212.892 5.86253 212.501 7.53626C212.157 9.18476 212.415 10.8194 213.275 12.4402L217.981 9.94347L222.913 19.2394L213.286 24.3464ZM199.166 31.8367L194.69 23.3989C193.072 20.3479 192.733 17.4123 193.673 14.592C194.636 11.6988 196.335 9.33153 198.77 7.49017L200.552 10.851C199.496 11.961 198.773 13.3528 198.381 15.0265C198.037 16.6751 198.295 18.3097 199.155 19.9305L203.862 17.4338L208.793 26.7296L199.166 31.8367Z"
-                fill="url(#paint0_linear_28_12)" />
-            <path
-                d="M490 59.723L473.339 54.2489C467.315 52.2695 463.131 48.8148 460.788 43.8848C458.382 38.8299 457.618 33.5349 458.498 27.9998L465.134 30.1802C465.149 32.993 465.962 35.7562 467.573 38.4698C469.215 41.0894 471.637 42.925 474.837 43.9765L477.89 34.6833L496.246 40.7141L490 59.723ZM480.84 87.6026L464.179 82.1285C458.155 80.1492 453.971 76.6945 451.628 71.7644C449.221 66.7096 448.458 61.4146 449.338 55.8795L455.974 58.0598C455.989 60.8727 456.802 63.6359 458.413 66.3494C460.055 68.9691 462.476 70.8047 465.677 71.8562L468.73 62.563L487.085 68.5938L480.84 87.6026Z"
-                fill="url(#paint1_linear_28_12)" />
-            <path
-                d="M445.754 314.114C444.951 313.941 444.324 313.504 443.875 312.801C443.541 312.124 443.461 311.38 443.635 310.569C443.809 309.759 444.181 308.869 444.749 307.901L458.987 286.067C459.86 284.801 460.703 283.953 461.515 283.522C462.353 282.975 463.461 282.85 464.837 283.146L470.517 284.367C471.435 284.564 472.106 285.072 472.53 285.89C472.775 286.428 472.822 287.044 472.673 287.738C472.598 288.086 472.466 288.421 472.277 288.743L463.187 312.593C462.006 315.852 460.038 317.186 457.285 316.594L445.754 314.114ZM473.291 320.036C472.487 319.863 471.861 319.425 471.412 318.723C471.078 318.045 470.998 317.301 471.172 316.491C471.421 315.333 471.792 314.443 472.286 313.823L486.524 291.989C487.397 290.723 488.239 289.874 489.052 289.443C489.89 288.897 490.998 288.771 492.374 289.067L498.054 290.289C498.972 290.486 499.643 290.994 500.067 291.812C500.312 292.349 500.359 292.965 500.21 293.66C500.135 294.007 500.003 294.342 499.814 294.665L490.724 318.514C489.543 321.774 487.575 323.107 484.822 322.515L473.291 320.036Z"
-                fill="url(#paint2_linear_28_12)" />
-            <path
-                d="M824.939 377.026C824.784 377.539 824.467 377.922 823.986 378.177C823.528 378.358 823.04 378.371 822.522 378.214C822.005 378.058 821.446 377.769 820.847 377.348L807.411 366.93C806.635 366.296 806.128 365.703 805.891 365.152C805.58 364.578 805.558 363.851 805.823 362.972L806.92 359.345C807.097 358.759 807.463 358.35 808.017 358.117C808.379 357.987 808.782 357.989 809.226 358.123C809.448 358.19 809.658 358.293 809.858 358.434L824.878 365.612C826.934 366.553 827.696 367.903 827.165 369.662L824.939 377.026ZM830.254 359.44C830.099 359.953 829.781 360.337 829.301 360.591C828.843 360.773 828.355 360.785 827.837 360.629C827.097 360.405 826.539 360.117 826.162 359.763L812.726 349.345C811.949 348.71 811.443 348.117 811.206 347.566C810.895 346.992 810.872 346.266 811.138 345.386L812.234 341.759C812.412 341.173 812.777 340.764 813.332 340.532C813.694 340.401 814.097 340.403 814.541 340.537C814.762 340.604 814.973 340.708 815.173 340.848L830.193 348.026C832.249 348.968 833.011 350.317 832.48 352.076L830.254 359.44Z"
-                fill="url(#paint3_linear_28_12)" />
-            <path
-                d="M258.024 329.025C257.706 329.406 257.296 329.619 256.793 329.662C256.336 329.651 255.915 329.485 255.53 329.163C255.144 328.842 254.772 328.393 254.413 327.817L246.718 314.052C246.285 313.229 246.067 312.539 246.065 311.982C246.007 311.379 246.251 310.751 246.797 310.097L249.048 307.397C249.411 306.961 249.872 306.744 250.43 306.747C250.786 306.767 251.129 306.914 251.46 307.19C251.625 307.327 251.767 307.492 251.887 307.684L262.109 319.257C263.523 320.806 263.685 322.235 262.594 323.544L258.024 329.025ZM268.936 315.936C268.618 316.318 268.208 316.531 267.705 316.574C267.248 316.562 266.827 316.396 266.442 316.075C265.891 315.616 265.519 315.167 265.325 314.728L257.63 300.964C257.197 300.14 256.979 299.45 256.977 298.894C256.919 298.291 257.163 297.663 257.709 297.008L259.96 294.309C260.323 293.872 260.784 293.656 261.342 293.658C261.698 293.678 262.041 293.826 262.372 294.101C262.537 294.239 262.679 294.404 262.799 294.596L273.021 306.169C274.435 307.718 274.597 309.147 273.506 310.456L268.936 315.936Z"
-                fill="url(#paint4_linear_28_12)" />
-            <path
-                d="M1083 309V297.283C1083 293.762 1083.63 290.132 1084.9 286.391C1086.23 282.595 1088.02 279.02 1090.29 275.664C1092.55 272.253 1095.06 269.365 1097.82 267L1108.34 273.271C1106.24 276.682 1104.48 280.285 1103.04 284.081C1101.61 287.876 1100.89 292.25 1100.89 297.2V309H1083ZM1110.66 309V297.283C1110.66 293.762 1111.29 290.132 1112.56 286.391C1113.89 282.595 1115.68 279.02 1117.95 275.664C1120.21 272.253 1122.72 269.365 1125.48 267L1136 273.271C1133.9 276.682 1132.14 280.285 1130.7 284.081C1129.26 287.876 1128.55 292.25 1128.55 297.2V309H1110.66Z"
-                fill="url(#paint5_linear_28_12)" />
-            <path
-                d="M1333.27 72.5454L1330.13 67.2076C1329.18 65.6038 1328.6 63.7173 1328.39 61.5481C1328.19 59.3337 1328.35 57.0476 1328.86 54.6899C1329.35 52.3071 1330.13 50.0714 1331.21 47.9827L1339.43 46.9874C1339.05 49.3095 1338.92 51.5981 1339.04 53.8529C1339.17 56.1078 1339.9 58.363 1341.23 60.6184L1344.39 65.9937L1333.27 72.5454ZM1350.47 62.4146L1347.32 57.0768C1346.38 55.473 1345.8 53.5865 1345.58 51.4173C1345.39 49.2029 1345.54 46.9168 1346.05 44.5591C1346.54 42.1763 1347.33 39.9406 1348.41 37.8519L1356.63 36.8566C1356.24 39.1787 1356.11 41.4672 1356.23 43.7221C1356.36 45.977 1357.09 48.2322 1358.42 50.4876L1361.59 55.8629L1350.47 62.4146Z"
-                fill="url(#paint6_linear_28_12)" />
-            <path
-                d="M1061.7 52.7623L1053.97 50.8621C1051.65 50.2912 1049.36 49.2837 1047.1 47.8397C1044.81 46.3504 1042.74 44.5874 1040.9 42.5505C1039.01 40.5047 1037.52 38.3799 1036.4 36.1759L1042.24 30.2574C1044.15 32.194 1046.24 33.9433 1048.51 35.5054C1050.78 37.0675 1053.55 38.25 1056.82 39.0529L1064.6 40.9664L1061.7 52.7623ZM1066.18 34.5224L1058.46 32.6223C1056.13 32.0513 1053.84 31.0439 1051.58 29.5999C1049.29 28.1106 1047.23 26.3475 1045.38 24.3107C1043.5 22.2649 1042 20.14 1040.89 17.9361L1046.73 12.0176C1048.64 13.9541 1050.73 15.7035 1053 17.2656C1055.27 18.8277 1058.04 20.0102 1061.3 20.8131L1069.08 22.7266L1066.18 34.5224Z"
-                fill="url(#paint7_linear_28_12)" />
-            <path
-                d="M14.6967 358.762L6.96991 356.862C4.64825 356.291 2.357 355.284 0.0961517 353.84C-2.19202 352.35 -4.25898 350.587 -6.10473 348.551C-7.98677 346.505 -9.48389 344.38 -10.5961 342.176L-4.75508 336.257C-2.84619 338.194 -0.756616 339.943 1.51364 341.505C3.7839 343.068 6.55145 344.25 9.81629 345.053L17.5975 346.966L14.6967 358.762ZM19.1822 340.522L11.4554 338.622C9.13373 338.051 6.84248 337.044 4.58164 335.6C2.29347 334.111 0.22651 332.348 -1.61925 330.311C-3.50128 328.265 -4.9984 326.14 -6.11061 323.936L-0.269597 318.018C1.63929 319.954 3.72887 321.703 5.99913 323.266C8.26939 324.828 11.0369 326.01 14.3018 326.813L22.083 328.727L19.1822 340.522Z"
-                fill="url(#paint8_linear_28_12)" />
-            <defs>
-                <linearGradient id="paint0_linear_28_12" x1="200.945" y1="6.33637" x2="211.111" y2="25.5002"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint1_linear_28_12" x1="450.749" y1="51.5849" x2="488.589" y2="64.0176"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint2_linear_28_12" x1="475.508" y1="285.44" x2="468.299" y2="318.962"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint3_linear_28_12" x1="807.883" y1="356.158" x2="829.291" y2="362.627"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint4_linear_28_12" x1="251.025" y1="305.025" x2="266.958" y2="318.309"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint5_linear_28_12" x1="1109.5" y1="267" x2="1109.5" y2="309"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint6_linear_28_12" x1="1338.47" y1="43.7059" x2="1349.75" y2="62.8392"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint7_linear_28_12" x1="1038.3" y1="28.4759" x2="1065.99" y2="35.287"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-                <linearGradient id="paint8_linear_28_12" x1="-8.70253" y1="334.476" x2="18.9942" y2="341.287"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ADD7C4" stop-opacity="0" />
-                    <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
-                </linearGradient>
-            </defs>
-        </svg>
-    </section>
+            <svg class="testimonial-shape" viewBox="0 0 1362 379" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M213.286 24.3464L208.81 15.9086C207.191 12.8576 206.852 9.92199 207.793 7.10169C208.756 4.2085 210.454 1.84123 212.889 -0.000116383L214.672 3.3607C213.616 4.47068 212.892 5.86253 212.501 7.53626C212.157 9.18476 212.415 10.8194 213.275 12.4402L217.981 9.94347L222.913 19.2394L213.286 24.3464ZM199.166 31.8367L194.69 23.3989C193.072 20.3479 192.733 17.4123 193.673 14.592C194.636 11.6988 196.335 9.33153 198.77 7.49017L200.552 10.851C199.496 11.961 198.773 13.3528 198.381 15.0265C198.037 16.6751 198.295 18.3097 199.155 19.9305L203.862 17.4338L208.793 26.7296L199.166 31.8367Z"
+                    fill="url(#paint0_linear_28_12)" />
+                <path
+                    d="M490 59.723L473.339 54.2489C467.315 52.2695 463.131 48.8148 460.788 43.8848C458.382 38.8299 457.618 33.5349 458.498 27.9998L465.134 30.1802C465.149 32.993 465.962 35.7562 467.573 38.4698C469.215 41.0894 471.637 42.925 474.837 43.9765L477.89 34.6833L496.246 40.7141L490 59.723ZM480.84 87.6026L464.179 82.1285C458.155 80.1492 453.971 76.6945 451.628 71.7644C449.221 66.7096 448.458 61.4146 449.338 55.8795L455.974 58.0598C455.989 60.8727 456.802 63.6359 458.413 66.3494C460.055 68.9691 462.476 70.8047 465.677 71.8562L468.73 62.563L487.085 68.5938L480.84 87.6026Z"
+                    fill="url(#paint1_linear_28_12)" />
+                <path
+                    d="M445.754 314.114C444.951 313.941 444.324 313.504 443.875 312.801C443.541 312.124 443.461 311.38 443.635 310.569C443.809 309.759 444.181 308.869 444.749 307.901L458.987 286.067C459.86 284.801 460.703 283.953 461.515 283.522C462.353 282.975 463.461 282.85 464.837 283.146L470.517 284.367C471.435 284.564 472.106 285.072 472.53 285.89C472.775 286.428 472.822 287.044 472.673 287.738C472.598 288.086 472.466 288.421 472.277 288.743L463.187 312.593C462.006 315.852 460.038 317.186 457.285 316.594L445.754 314.114ZM473.291 320.036C472.487 319.863 471.861 319.425 471.412 318.723C471.078 318.045 470.998 317.301 471.172 316.491C471.421 315.333 471.792 314.443 472.286 313.823L486.524 291.989C487.397 290.723 488.239 289.874 489.052 289.443C489.89 288.897 490.998 288.771 492.374 289.067L498.054 290.289C498.972 290.486 499.643 290.994 500.067 291.812C500.312 292.349 500.359 292.965 500.21 293.66C500.135 294.007 500.003 294.342 499.814 294.665L490.724 318.514C489.543 321.774 487.575 323.107 484.822 322.515L473.291 320.036Z"
+                    fill="url(#paint2_linear_28_12)" />
+                <path
+                    d="M824.939 377.026C824.784 377.539 824.467 377.922 823.986 378.177C823.528 378.358 823.04 378.371 822.522 378.214C822.005 378.058 821.446 377.769 820.847 377.348L807.411 366.93C806.635 366.296 806.128 365.703 805.891 365.152C805.58 364.578 805.558 363.851 805.823 362.972L806.92 359.345C807.097 358.759 807.463 358.35 808.017 358.117C808.379 357.987 808.782 357.989 809.226 358.123C809.448 358.19 809.658 358.293 809.858 358.434L824.878 365.612C826.934 366.553 827.696 367.903 827.165 369.662L824.939 377.026ZM830.254 359.44C830.099 359.953 829.781 360.337 829.301 360.591C828.843 360.773 828.355 360.785 827.837 360.629C827.097 360.405 826.539 360.117 826.162 359.763L812.726 349.345C811.949 348.71 811.443 348.117 811.206 347.566C810.895 346.992 810.872 346.266 811.138 345.386L812.234 341.759C812.412 341.173 812.777 340.764 813.332 340.532C813.694 340.401 814.097 340.403 814.541 340.537C814.762 340.604 814.973 340.708 815.173 340.848L830.193 348.026C832.249 348.968 833.011 350.317 832.48 352.076L830.254 359.44Z"
+                    fill="url(#paint3_linear_28_12)" />
+                <path
+                    d="M258.024 329.025C257.706 329.406 257.296 329.619 256.793 329.662C256.336 329.651 255.915 329.485 255.53 329.163C255.144 328.842 254.772 328.393 254.413 327.817L246.718 314.052C246.285 313.229 246.067 312.539 246.065 311.982C246.007 311.379 246.251 310.751 246.797 310.097L249.048 307.397C249.411 306.961 249.872 306.744 250.43 306.747C250.786 306.767 251.129 306.914 251.46 307.19C251.625 307.327 251.767 307.492 251.887 307.684L262.109 319.257C263.523 320.806 263.685 322.235 262.594 323.544L258.024 329.025ZM268.936 315.936C268.618 316.318 268.208 316.531 267.705 316.574C267.248 316.562 266.827 316.396 266.442 316.075C265.891 315.616 265.519 315.167 265.325 314.728L257.63 300.964C257.197 300.14 256.979 299.45 256.977 298.894C256.919 298.291 257.163 297.663 257.709 297.008L259.96 294.309C260.323 293.872 260.784 293.656 261.342 293.658C261.698 293.678 262.041 293.826 262.372 294.101C262.537 294.239 262.679 294.404 262.799 294.596L273.021 306.169C274.435 307.718 274.597 309.147 273.506 310.456L268.936 315.936Z"
+                    fill="url(#paint4_linear_28_12)" />
+                <path
+                    d="M1083 309V297.283C1083 293.762 1083.63 290.132 1084.9 286.391C1086.23 282.595 1088.02 279.02 1090.29 275.664C1092.55 272.253 1095.06 269.365 1097.82 267L1108.34 273.271C1106.24 276.682 1104.48 280.285 1103.04 284.081C1101.61 287.876 1100.89 292.25 1100.89 297.2V309H1083ZM1110.66 309V297.283C1110.66 293.762 1111.29 290.132 1112.56 286.391C1113.89 282.595 1115.68 279.02 1117.95 275.664C1120.21 272.253 1122.72 269.365 1125.48 267L1136 273.271C1133.9 276.682 1132.14 280.285 1130.7 284.081C1129.26 287.876 1128.55 292.25 1128.55 297.2V309H1110.66Z"
+                    fill="url(#paint5_linear_28_12)" />
+                <path
+                    d="M1333.27 72.5454L1330.13 67.2076C1329.18 65.6038 1328.6 63.7173 1328.39 61.5481C1328.19 59.3337 1328.35 57.0476 1328.86 54.6899C1329.35 52.3071 1330.13 50.0714 1331.21 47.9827L1339.43 46.9874C1339.05 49.3095 1338.92 51.5981 1339.04 53.8529C1339.17 56.1078 1339.9 58.363 1341.23 60.6184L1344.39 65.9937L1333.27 72.5454ZM1350.47 62.4146L1347.32 57.0768C1346.38 55.473 1345.8 53.5865 1345.58 51.4173C1345.39 49.2029 1345.54 46.9168 1346.05 44.5591C1346.54 42.1763 1347.33 39.9406 1348.41 37.8519L1356.63 36.8566C1356.24 39.1787 1356.11 41.4672 1356.23 43.7221C1356.36 45.977 1357.09 48.2322 1358.42 50.4876L1361.59 55.8629L1350.47 62.4146Z"
+                    fill="url(#paint6_linear_28_12)" />
+                <path
+                    d="M1061.7 52.7623L1053.97 50.8621C1051.65 50.2912 1049.36 49.2837 1047.1 47.8397C1044.81 46.3504 1042.74 44.5874 1040.9 42.5505C1039.01 40.5047 1037.52 38.3799 1036.4 36.1759L1042.24 30.2574C1044.15 32.194 1046.24 33.9433 1048.51 35.5054C1050.78 37.0675 1053.55 38.25 1056.82 39.0529L1064.6 40.9664L1061.7 52.7623ZM1066.18 34.5224L1058.46 32.6223C1056.13 32.0513 1053.84 31.0439 1051.58 29.5999C1049.29 28.1106 1047.23 26.3475 1045.38 24.3107C1043.5 22.2649 1042 20.14 1040.89 17.9361L1046.73 12.0176C1048.64 13.9541 1050.73 15.7035 1053 17.2656C1055.27 18.8277 1058.04 20.0102 1061.3 20.8131L1069.08 22.7266L1066.18 34.5224Z"
+                    fill="url(#paint7_linear_28_12)" />
+                <path
+                    d="M14.6967 358.762L6.96991 356.862C4.64825 356.291 2.357 355.284 0.0961517 353.84C-2.19202 352.35 -4.25898 350.587 -6.10473 348.551C-7.98677 346.505 -9.48389 344.38 -10.5961 342.176L-4.75508 336.257C-2.84619 338.194 -0.756616 339.943 1.51364 341.505C3.7839 343.068 6.55145 344.25 9.81629 345.053L17.5975 346.966L14.6967 358.762ZM19.1822 340.522L11.4554 338.622C9.13373 338.051 6.84248 337.044 4.58164 335.6C2.29347 334.111 0.22651 332.348 -1.61925 330.311C-3.50128 328.265 -4.9984 326.14 -6.11061 323.936L-0.269597 318.018C1.63929 319.954 3.72887 321.703 5.99913 323.266C8.26939 324.828 11.0369 326.01 14.3018 326.813L22.083 328.727L19.1822 340.522Z"
+                    fill="url(#paint8_linear_28_12)" />
+                <defs>
+                    <linearGradient id="paint0_linear_28_12" x1="200.945" y1="6.33637" x2="211.111"
+                        y2="25.5002" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_28_12" x1="450.749" y1="51.5849" x2="488.589"
+                        y2="64.0176" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_28_12" x1="475.508" y1="285.44" x2="468.299"
+                        y2="318.962" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint3_linear_28_12" x1="807.883" y1="356.158" x2="829.291"
+                        y2="362.627" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint4_linear_28_12" x1="251.025" y1="305.025" x2="266.958"
+                        y2="318.309" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint5_linear_28_12" x1="1109.5" y1="267" x2="1109.5"
+                        y2="309" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint6_linear_28_12" x1="1338.47" y1="43.7059" x2="1349.75"
+                        y2="62.8392" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint7_linear_28_12" x1="1038.3" y1="28.4759" x2="1065.99"
+                        y2="35.287" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="paint8_linear_28_12" x1="-8.70253" y1="334.476" x2="18.9942"
+                        y2="341.287" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ADD7C4" stop-opacity="0" />
+                        <stop offset="1" stop-color="#9BFFD0" stop-opacity="0.4" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </section>
     @endif
     <!-- ==== Testimonial Ends Here ==== -->
 @endsection
