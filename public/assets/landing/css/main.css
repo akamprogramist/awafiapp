@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 :root {
-    --base-1: #00e77b;
+    /* --base-1: #00e77b;
     --base-rgb: 0, 231, 123;
     --base-2: #04f485;
-    --base-rgb-2: 4, 244, 133;
+    --base-rgb-2: 4, 244, 133; */
 
     /* Test Color */
-    /* --base-1: #c70000;
+    --base-1: #c70000;
     --base-rgb: 255, 0, 0;
     --base-2: #ff2200;
-    --base-rgb-2: 255, 34, 0; */
+    --base-rgb-2: 255, 34, 0;
     /* Test Color End */
 
     --base-8: #6200ee;
