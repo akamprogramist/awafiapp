@@ -2665,4 +2665,8 @@
   'This value is the miximum distance for a vehicle in this category to serve an order.
                                             ' => 'This value is the miximum distance for a vehicle in this category to serve an order.
                                             ',
+  'module_created_successfully' => 'Module created successfully',
+  'Awafi App' => 'Awafi App',
+  'zaincash' => 'Zaincash',
+  'asiahawalla' => 'Asiahawalla',
 );

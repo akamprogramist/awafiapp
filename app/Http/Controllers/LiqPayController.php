@@ -38,6 +38,7 @@ use Symfony\Component\Process\Exception\InvalidArgumentException;
  *
  * @author      Liqpay <support@liqpay.ua>
  */
+//
 class LiqPay
 {
     const CURRENCY_EUR = 'EUR';
@@ -155,7 +156,8 @@ class LiqPay
         $data = $this->encode_params($params);
         $signature = $this->cnb_signature($params);
 
-        return sprintf('
+        return sprintf(
+            '
             <form method="POST" action="%s" accept-charset="utf-8">
                 %s
                 %s
@@ -278,9 +280,9 @@ class LiqPayController extends Controller
 {
     public function payment(Request $request)
     {
-        try{
+        try {
             $tran = Str::random(6) . '-' . rand(1, 1000);
-            $order = Order::with(['details'])->where(['id' => $request->order_id, 'user_id'=>$request->customer_id])->first();
+            $order = Order::with(['details'])->where(['id' => $request->order_id, 'user_id' => $request->customer_id])->first();
             $config = Helpers::get_business_settings('liqpay');
 
             $public_key = $config['public_key'];
@@ -292,19 +294,18 @@ class LiqPayController extends Controller
                 'currency' => Helpers::currency_code(), //USD
                 'description' => 'Transaction ID: ' . $tran,
                 'order_id' => $order->id,
-                'result_url' => route('liqpay-callback',['order_id'=>$order->id]),
-                'server_url' => route('liqpay-callback',['order_id'=>$order->id]),
+                'result_url' => route('liqpay-callback', ['order_id' => $order->id]),
+                'server_url' => route('liqpay-callback', ['order_id' => $order->id]),
                 'version' => '3'
             ));
             return $html;
-        }catch(\Exception $ex){
-            Toastr::error(translate('messages.config_your_account',['method'=>translate('messages.liqpay')]));
+        } catch (\Exception $ex) {
+            Toastr::error(translate('messages.config_your_account', ['method' => translate('messages.liqpay')]));
             return back();
         }
-
     }
 
-    public function callback(Request $request,$order_id)
+    public function callback(Request $request, $order_id)
     {
         $order = Order::with(['details'])->where(['id' => $order_id])->first();
         $request['order_id'] = $order_id;
@@ -318,7 +319,7 @@ class LiqPayController extends Controller
             Helpers::send_order_notification($order);
             if ($order->callback != null) {
                 return redirect($order->callback . '&status=success');
-            }else{
+            } else {
                 return \redirect()->route('payment-success');
             }
         }
@@ -328,7 +329,7 @@ class LiqPayController extends Controller
         $order->save();
         if ($order->callback != null) {
             return redirect($order->callback . '&status=fail');
-        }else{
+        } else {
             return \redirect()->route('payment-fail');
         }
     }

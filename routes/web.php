@@ -37,6 +37,9 @@ Route::get('authentication-failed', function () {
     ], 401);
 })->name('authentication-failed');
 
+
+
+// show mobile payment page is here
 Route::group(['prefix' => 'payment-mobile'], function () {
     Route::get('/', 'PaymentController@payment')->name('payment-mobile');
     Route::get('set-payment-method/{name}', 'PaymentController@set_payment_method')->name('set-payment-method');
@@ -139,14 +142,14 @@ Route::get('/test', function () {
     // $keyContent = file_get_contents('storage/app/public/apple-login/'.$apple_login->service_file);
     // $keyContent = file_get_contents('AppleServiceId.p8');
     // dd($keyContent);
-//     $clientId = 'com.sixamtech.6amMart';
-// $teamId   = '7WSYLQ8Y87';
-// $keyId    = 'U7KA7F82UM';
-// $certPath = url('/'). '/app/Library/AuthKey_U7KA7F82UM.p8';
+    //     $clientId = 'com.sixamtech.6amMart';
+    // $teamId   = '7WSYLQ8Y87';
+    // $keyId    = 'U7KA7F82UM';
+    // $certPath = url('/'). '/app/Library/AuthKey_U7KA7F82UM.p8';
 
-// $clientSecret = new ClientSecret($clientId, $teamId, $keyId, $certPath);
+    // $clientSecret = new ClientSecret($clientId, $teamId, $keyId, $certPath);
 
-// dd($clientSecret->generate());
+    // dd($clientSecret->generate());
     dd('Hello tester');
 });
 

@@ -375,6 +375,8 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('mail-config', 'BusinessSettingsController@mail_config');
             Route::get('send-mail', 'BusinessSettingsController@send_mail')->name('mail.send');
 
+
+            /// payment method page
             Route::get('payment-method', 'BusinessSettingsController@payment_index')->name('payment-method');
             Route::post('payment-method-update/{payment_method}', 'BusinessSettingsController@payment_update')->name('payment-method-update');
 
@@ -448,7 +450,6 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('order-cancel-reasons/store', 'OrderCancelReasonController@store')->name('order-cancel-reasons.store');
             Route::put('order-cancel-reasons/update', 'OrderCancelReasonController@update')->name('order-cancel-reasons.update');
             Route::delete('order-cancel-reasons/destroy', 'OrderCancelReasonController@destroy')->name('order-cancel-reasons.destroy');
-    
         });
         Route::group(['prefix' => 'business-settings', 'as' => 'business-settings.'], function () {
             //module
@@ -676,7 +677,6 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
                         Route::post('update/{vehicle}', 'DmVehicleController@update')->name('update');
                         Route::delete('delete', 'DmVehicleController@destroy')->name('delete');
                         Route::get('view/{vehicle}', 'DmVehicleController@view')->name('view');
-            
                     });
                 });
             });
