@@ -722,6 +722,63 @@
                     </div>
                 </div>
             </div>
+
+            {{-- zain cash payment method  --}}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body p-30px">
+                        @php($config = \App\CentralLogics\Helpers::get_business_settings('zaincash'))
+                        <form
+                            action="{{ env('APP_MODE') != 'demo' ? route('admin.business-settings.payment-method-update', ['zaincash']) : 'javascript:' }}"
+                            method="post">
+                            @csrf
+                            @if (isset($config))
+                                <h5 class="d-flex flex-wrap justify-content-between">
+                                    <strong>{{ translate('messages.zaincash') }}</strong>
+                                    <label class="switch--custom-label toggle-switch toggle-switch-sm d-inline-flex">
+                                        <span
+                                            class="mr-2 switch--custom-label-text text-primary on text-uppercase">{{ translate('messages.on') }}</span>
+                                        <span
+                                            class="mr-2 switch--custom-label-text off text-uppercase">{{ translate('messages.off') }}</span>
+                                        <input type="checkbox" class="toggle-switch-input" name="status" value="1"
+                                            {{ $config ? ($config['status'] == 1 ? 'checked' : '') : '' }}>
+                                        <span class="toggle-switch-label text">
+                                            <span class="toggle-switch-indicator"></span>
+                                        </span>
+                                    </label>
+                                </h5>
+                                <div class="payment--gateway-img">
+                                    <img src="{{ asset('/public/assets/admin/img/payment/zaincash-ar.png') }}"
+                                        alt="public">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <input class="form-control" type="text" placeholder="MSISDN" name="MSISDN"
+                                        value="{{ env('APP_MODE') != 'demo' ? $config['zain_msisdn'] : '' }}">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <input class="form-control" type="text" placeholder="Merchant ID"
+                                        name="merchand_id"
+                                        value="{{ env('APP_MODE') != 'demo' ? $config['zain_secret'] : '' }}">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <input class="form-control" type="text" placeholder="Merchant Secret"
+                                        name="merchand_secret"
+                                        value="{{ env('APP_MODE') != 'demo' ? $config['zain_merchantid'] : '' }}">
+                                </div>
+                                <div class="btn--container justify-content-end">
+                                    <button type="{{ env('APP_MODE') != 'demo' ? 'submit' : 'button' }}"
+                                        onclick="{{ env('APP_MODE') != 'demo' ? '' : 'call_demo()' }}"
+                                        class="btn h--37px btn--primary">{{ translate('messages.save') }}</button>
+                                </div>
+                            @else
+                                <button type="submit"
+                                    class="btn btn--primary mb-2">{{ translate('messages.configure') }}</button>
+                            @endif
+
+                        </form>
+                    </div>
+                </div>
+            </div>
             {{-- asia hawalla payment method  --}}
             {{-- <div class="col-md-6">
                 <div class="card">
@@ -775,62 +832,6 @@
                 </div>
             </div> --}}
 
-            {{-- zain cash payment method  --}}
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body p-30px">
-                        @php($config = \App\CentralLogics\Helpers::get_business_settings('zaincash'))
-                        <form
-                            action="{{ env('APP_MODE') != 'demo' ? route('admin.business-settings.payment-method-update', ['zaincash']) : 'javascript:' }}"
-                            method="post">
-                            @csrf
-                            @if (isset($config))
-                                <h5 class="d-flex flex-wrap justify-content-between">
-                                    <strong>{{ translate('messages.zaincash') }}</strong>
-                                    <label class="switch--custom-label toggle-switch toggle-switch-sm d-inline-flex">
-                                        <span
-                                            class="mr-2 switch--custom-label-text text-primary on text-uppercase">{{ translate('messages.on') }}</span>
-                                        <span
-                                            class="mr-2 switch--custom-label-text off text-uppercase">{{ translate('messages.off') }}</span>
-                                        <input type="checkbox" class="toggle-switch-input" name="status" value="1"
-                                            {{ $config ? ($config['status'] == 1 ? 'checked' : '') : '' }}>
-                                        <span class="toggle-switch-label text">
-                                            <span class="toggle-switch-indicator"></span>
-                                        </span>
-                                    </label>
-                                </h5>
-                                <div class="payment--gateway-img">
-                                    <img src="{{ asset('/public/assets/admin/img/payment/zaincash-ar.png') }}"
-                                        alt="public">
-                                </div>
-                                <div class="form-group mb-4">
-                                    <input class="form-control" type="text" placeholder="MSISDN" name="MSISDN"
-                                        value="{{ env('APP_MODE') != 'demo' ? $config['MSISDN'] : '' }}">
-                                </div>
-                                <div class="form-group mb-4">
-                                    <input class="form-control" type="text" placeholder="Merchant ID"
-                                        name="merchand_id"
-                                        value="{{ env('APP_MODE') != 'demo' ? $config['merchand_id'] : '' }}">
-                                </div>
-                                <div class="form-group mb-4">
-                                    <input class="form-control" type="text" placeholder="Merchant Secret"
-                                        name="merchand_secret"
-                                        value="{{ env('APP_MODE') != 'demo' ? $config['merchand_secret'] : '' }}">
-                                </div>
-                                <div class="btn--container justify-content-end">
-                                    <button type="{{ env('APP_MODE') != 'demo' ? 'submit' : 'button' }}"
-                                        onclick="{{ env('APP_MODE') != 'demo' ? '' : 'call_demo()' }}"
-                                        class="btn h--37px btn--primary">{{ translate('messages.save') }}</button>
-                                </div>
-                            @else
-                                <button type="submit"
-                                    class="btn btn--primary mb-2">{{ translate('messages.configure') }}</button>
-                            @endif
-
-                        </form>
-                    </div>
-                </div>
-            </div>
             <!-- This Design Will Implement On All Digital Payment Method Its an Static Design Card End -->
 
 

@@ -383,25 +383,33 @@ class BusinessSettingsController extends Controller
         //         ]);
         //     }
         // } 
+
         elseif ($name == 'zaincash') {
-            DB::table('business_settings')->updateOrInsert(['key' => 'zaincash'], [
-                'value' => json_encode([
-                    'status' => $request['status'],
-                    'MSISDN' => $request['MSISDN'],
-                    'merchand_id' => $request['merchand_id'],
-                    'merchand_secret' => $request['merchand_secret']
-                ]),
-                'updated_at' => now()
-            ]);
-        } elseif ($name == 'liqpay') {
-            DB::table('business_settings')->updateOrInsert(['key' => 'liqpay'], [
-                'value' => json_encode([
-                    'status' => $request['status'],
-                    'public_key' => $request['public_key'],
-                    'private_key' => $request['private_key']
-                ]),
-                'updated_at' => now()
-            ]);
+            $payment = BusinessSetting::where('key', 'zaincash')->first();
+            if (isset($payment) == false) {
+                DB::table('business_settings')->insert([
+                    'key'        => 'zaincash',
+                    'value'      => json_encode([
+                        'status'       => 1,
+                        'zain_msisdn'    => '',
+                        'zain_secret' => '',
+                        'zain_merchantid' => '',
+                    ]),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            } else {
+                DB::table('business_settings')->where(['key' => 'zaincash'])->update([
+                    'key'        => 'zaincash',
+                    'value'      => json_encode([
+                        'status'       => $request['status'],
+                        'zain_msisdn'    => $request['zain_msisdn'],
+                        'zain_secret' => $request['zain_secret'],
+                        'zain_merchantid' => $request['zain_merchantid'],
+                    ]),
+                    'updated_at' => now(),
+                ]);
+            }
         }
         // elseif ($name == 'asiahawalla') {
         //     DB::table('business_settings')->updateOrInsert(['key' => 'asiahawalla'], [

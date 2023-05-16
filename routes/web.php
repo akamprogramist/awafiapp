@@ -133,7 +133,8 @@ Route::any('paytm-response', 'PaytmController@callback')->name('paytm-response')
 Route::get('liqpay-payment', 'LiqPayController@payment')->name('liqpay-payment');
 Route::any('liqpay-callback/{order_id}', 'LiqPayController@callback')->name('liqpay-callback');
 
-
+//  zaincash payment routes
+Route::get('pay-zaincash', 'ZainCashController@gateway')->name('pay-zaincash');
 Route::get('/test', function () {
     // $apple_login=\App\Models\BusinessSetting::where(['key'=>'apple_login'])->first();
     // if($apple_login){

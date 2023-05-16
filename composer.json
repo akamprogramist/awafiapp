@@ -12,7 +12,7 @@
         "brian2694/laravel-toastr": "^5.54",
         "doctrine/dbal": "^3.3",
         "fideloper/proxy": "^4.4",
-        "firebase/php-jwt": "^6.4",
+        "firebase/php-jwt": "^6.5",
         "fruitcake/laravel-cors": "^2.0",
         "gregwar/captcha": "^1.1",
         "grimzy/laravel-mysql-spatial": "5.0",

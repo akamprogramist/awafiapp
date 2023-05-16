@@ -65,6 +65,25 @@ $landing_site_direction = session()->get('landing_site_direction');
                     </a>
                     <ul class="menu">
                         <li>
+                            @php($config = \App\CentralLogics\Helpers::get_business_settings('zaincash'))
+                            @if ($config['status'])
+                                <div class="col-md-6 cursor-pointer">
+                                    <div class="card">
+                                        <div class="card-body pb-0 pt-1 h--70px">
+                                            <form class="needs-validation" method="get" id="payment-form"
+                                                action="{{ route('pay-zaincash', request()->getQueryString()) }}">
+                                                {{ csrf_field() }}
+                                                <button class="btn btn-block click-if-alone" type="submit">
+                                                    <img width="100"
+                                                        src="{{ asset('public/assets/admin/img/payment/zaincash-ar.png') }}" />
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </li>
+                        <li>
                             <a href="{{ route('home') }}"
                                 class="{{ Request::is('/') ? 'active' : '' }}"><span>{{ translate('messages.home') }}</span></a>
                         </li>

@@ -118,6 +118,24 @@
                             </div>
                         @endif
 
+                        {{-- zaincash payment --}}
+                        @php($config = \App\CentralLogics\Helpers::get_business_settings('zaincash'))
+                        @if ($config['status'])
+                            <div class="col-md-6 mb-4 cursor-pointer">
+                                <div class="card">
+                                    <div class="card-body pb-0 pt-1 h--70px">
+                                        <form class="needs-validation" method="POST" id="payment-form"
+                                            action="{{ route('pay-zaincash', request()->getQueryString()) }}">
+                                            {{ csrf_field() }}
+                                            <button class="btn btn-block click-if-alone" type="submit">
+                                                <img width="100"
+                                                    src="{{ asset('public/assets/admin/img/zaincash.png') }}" />
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
 
                         @php($config = \App\CentralLogics\Helpers::get_business_settings('stripe'))
                         @if ($config['status'])
@@ -176,9 +194,11 @@
                                                     <input type="hidden" name="email"
                                                         value="{{ $order->customer->email != null ? $order->customer->email : 'required@email.com' }}">
                                                     {{-- required --}}
-                                                    <input type="hidden" name="orderID" value="{{ $order['id'] }}">
+                                                    <input type="hidden" name="orderID"
+                                                        value="{{ $order['id'] }}">
                                                     <input type="hidden" name="amount"
-                                                        value="{{ $order['order_amount'] * 100 }}"> {{-- required in kobo --}}
+                                                        value="{{ $order['order_amount'] * 100 }}">
+                                                    {{-- required in kobo --}}
                                                     <input type="hidden" name="quantity" value="1">
                                                     <input type="hidden" name="currency"
                                                         value="{{ $currency }}">
@@ -526,7 +546,7 @@
                 $('.click-if-alone')[0].click()
                 $('.checkout_details').html(
                     '<div class="text-center"><h1>{{ translate('messages.Redirecting_to_the_payment_page') }}......</h1></div>'
-                    );
+                );
             }
         }
         @if (!Session::has('toastr::messages'))
