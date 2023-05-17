@@ -135,6 +135,7 @@ Route::any('liqpay-callback/{order_id}', 'LiqPayController@callback')->name('liq
 
 //  zaincash payment routes
 Route::get('pay-zaincash', 'ZainCashController@gateway')->name('pay-zaincash');
+
 Route::get('/test', function () {
     // $apple_login=\App\Models\BusinessSetting::where(['key'=>'apple_login'])->first();
     // if($apple_login){
