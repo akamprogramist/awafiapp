@@ -2669,4 +2669,6 @@
   'Awafi App' => 'Awafi App',
   'zaincash' => 'Zaincash',
   'asiahawalla' => 'Asiahawalla',
+  'Default login password: ' => 'Default login password: ',
+  'This report will show all the orders in which the store discount has been used. The store discounts are: Free delivery, Coupon discount & item discounts(partial according to order commission).' => 'This report will show all the orders in which the store discount has been used. The store discounts are: Free delivery  Coupon discount & item discounts(partial according to order commission).',
 );
