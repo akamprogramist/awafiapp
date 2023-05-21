@@ -64,7 +64,8 @@ $landing_site_direction = session()->get('landing_site_direction');
                             src="{{ asset('storage/app/public/business/' . $fav) }}" alt="">
                     </a>
                     <ul class="menu">
-                        <li>
+                        {{-- zaincash implementation test --}}
+                        {{-- <li>
                             @php($config = \App\CentralLogics\Helpers::get_business_settings('zaincash'))
                             @if ($config['status'])
                                 <div class="col-md-6 cursor-pointer">
@@ -82,7 +83,7 @@ $landing_site_direction = session()->get('landing_site_direction');
                                     </div>
                                 </div>
                             @endif
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ route('home') }}"
                                 class="{{ Request::is('/') ? 'active' : '' }}"><span>{{ translate('messages.home') }}</span></a>
