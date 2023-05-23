@@ -21,7 +21,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ require __DIR__.'/vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/bootstrap/app.php';
+$app = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +58,20 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+
+
+// <VirtualHost *:80>
+//     ServerAdmin hedgehog.iq@gmail.com
+//     ServerName 34.101.102.63
+//     DocumentRoot /var/www/html/awafiapp/
+
+//     <Directory /var/www/html/awafiapp>
+//     Options Indexes MultiViews
+//     AllowOverride None
+//     Require all granted
+//     </Directory>
+
+//     ErrorLog ${APACHE_LOG_DIR}/error.log
+//     CustomLog ${APACHE_LOG_DIR}/access.log combined
+// </VirtualHost>
